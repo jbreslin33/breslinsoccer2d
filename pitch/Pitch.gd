@@ -41,6 +41,25 @@ func drawSouthTouchline():
 	var end = Vector2(westTouchline,southTouchline)
 	draw_line(start,end,whiteChalk)
 
+func drawPenaltyBoxEast():
+	var start = Vector2(eastTouchline + 165, centerVector.y - 36.6 - 165)
+	var end = Vector2(eastTouchline + 165, centerVector.y + 36.6 + 165)
+	draw_line(start,end,whiteChalk)
+	
+	start = Vector2(eastTouchline, centerVector.y - 36.6 - 165)
+	end = Vector2(eastTouchline + 165, centerVector.y - 36.6 - 165)
+	draw_line(start,end,whiteChalk)
+	
+	start = Vector2(eastTouchline, centerVector.y + 36.6 + 165)
+	end = Vector2(eastTouchline + 165, centerVector.y + 36.6 + 165)
+	draw_line(start,end,whiteChalk)
+	
+func drawGoalEast():
+	
+	
+	pass
+	
+
 func draw_circle_arc(center, radius, angle_from, angle_to, color):
     var nb_points = 32
     var points_arc = PoolVector2Array()
@@ -60,3 +79,6 @@ func _draw():
 	drawWestTouchline()
 	drawNorthTouchline()
 	drawSouthTouchline()
+	drawPenaltyBoxEast()
+	
+	drawGoalEast()
