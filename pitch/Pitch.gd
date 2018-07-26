@@ -7,32 +7,39 @@ var eastTouchline = 10
 var westTouchline = 1060
 var centerVector = Vector2(535,360)
 
-func draw_pitch_lines():
+#white line
+var whiteChalk = Color(1.0, 1.0, 1.0)
 
-	#white line
-	var whiteChalk = Color(1.0, 1.0, 1.0)
-	
-	#tap off circle
+func drawTapOffCircle():
 	draw_circle(centerVector,5,whiteChalk)
-	
-	#center circle
+
+func drawCenterCircle():
 	draw_circle_arc(centerVector,95,0,360,whiteChalk)
+
+func drawMidFieldLine():
+	var start = Vector2(centerVector.x,northTouchline)
+	var end = Vector2(centerVector.x,southTouchline)
+	draw_line(start,end,whiteChalk)	
+
+func drawEastTouchline():
+	var start = Vector2(eastTouchline,northTouchline)
+	var end = Vector2(eastTouchline,southTouchline)
+	draw_line(start,end,whiteChalk)
+
+func drawWestTouchline():
+	var start = Vector2(westTouchline,northTouchline)
+	var end = Vector2(westTouchline,southTouchline)
+	draw_line(start,end,whiteChalk)
 	
-	#midfield line
-	var midfieldLineStart = Vector2(centerVector.x,northTouchline)
-	var midfieldLineEnd = Vector2(centerVector.x,southTouchline)
-	draw_line(midfieldLineStart,midfieldLineEnd,whiteChalk)
-	
-	#easttouchline
-	var eastTouchlineStart = Vector2(eastTouchline,northTouchline)
-	var eastTouchlineEnd = Vector2(eastTouchline,southTouchline)
-	draw_line(eastTouchlineStart,eastTouchlineEnd,whiteChalk)
-	
-	#westtouchline
-	var westTouchlineStart = Vector2(westTouchline,northTouchline)
-	var westTouchlineEnd = Vector2(westTouchline,southTouchline)
-	draw_line(westTouchlineStart,westTouchlineEnd,whiteChalk)
-	
+func drawNorthTouchline():
+	var start = Vector2(eastTouchline,northTouchline)
+	var end = Vector2(westTouchline,northTouchline)
+	draw_line(start,end,whiteChalk)
+
+func drawSouthTouchline():
+	var start = Vector2(eastTouchline,southTouchline)
+	var end = Vector2(westTouchline,southTouchline)
+	draw_line(start,end,whiteChalk)
 
 func draw_circle_arc(center, radius, angle_from, angle_to, color):
     var nb_points = 32
@@ -46,4 +53,10 @@ func draw_circle_arc(center, radius, angle_from, angle_to, color):
         draw_line(points_arc[index_point], points_arc[index_point + 1], color)
 		
 func _draw():
-	draw_pitch_lines()
+	drawTapOffCircle()
+	drawCenterCircle()
+	drawMidFieldLine()
+	drawEastTouchline()
+	drawWestTouchline()
+	drawNorthTouchline()
+	drawSouthTouchline()
