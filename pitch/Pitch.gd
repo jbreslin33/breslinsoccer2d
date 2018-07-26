@@ -9,6 +9,7 @@ var centerVector = Vector2(535,360)
 
 #white line
 var whiteChalk = Color(1.0, 1.0, 1.0)
+var redChalk = Color(1.0, 0, 0)
 
 func drawTapOffCircle():
 	draw_circle(centerVector,5,whiteChalk)
@@ -55,7 +56,8 @@ func drawPenaltyBoxEast():
 	draw_line(start,end,whiteChalk)
 	
 func drawGoalEast():
-	
+	#start = Vector2(centerVector.x,centerVector.y + 
+	#draw_line(start,end,redChalk)
 	
 	pass
 	
