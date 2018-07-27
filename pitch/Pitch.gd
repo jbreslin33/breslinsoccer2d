@@ -7,7 +7,7 @@ var eastTouchline = 10
 var westTouchline = 1060
 var centerVector = Vector2(535,360)
 
-#white line
+#colors
 var whiteChalk = Color(1.0, 1.0, 1.0)
 var redChalk = Color(1.0, 0, 0)
 var greenGrass = Color(.1,0.5,0)
@@ -16,7 +16,6 @@ func drawGrass():
 	var grassSizeVector = get_viewport().get_size_override()
 	var grassPositionVector = Vector2(0,0)
 	var grassRect2 = Rect2(grassPositionVector,grassSizeVector)
-	#void draw_rect( Rect2 rect, Color color, bool filled=true )
 	draw_rect(grassRect2,greenGrass,true)
 
 func drawTapOffCircle():
