@@ -55,12 +55,29 @@ func drawPenaltyBoxEast():
 	end = Vector2(eastTouchline + 165, centerVector.y + 36.6 + 165)
 	draw_line(start,end,whiteChalk)
 	
+func drawPenaltyBoxWest():
+	var start = Vector2(westTouchline - 165, centerVector.y - 36.6 - 165)
+	var end = Vector2(westTouchline - 165, centerVector.y + 36.6 + 165)
+	draw_line(start,end,whiteChalk)
+	
+	start = Vector2(westTouchline, centerVector.y - 36.6 - 165)
+	end = Vector2(westTouchline - 165, centerVector.y - 36.6 - 165)
+	draw_line(start,end,whiteChalk)
+	
+	start = Vector2(westTouchline, centerVector.y + 36.6 + 165)
+	end = Vector2(westTouchline - 165, centerVector.y + 36.6 + 165)
+	draw_line(start,end,whiteChalk)
+	
 func drawGoalEast():
-	#start = Vector2(centerVector.x,centerVector.y + 
-	#draw_line(start,end,redChalk)
+	var start = Vector2(eastTouchline,centerVector.y - 36.6)
+	var end   = Vector2(eastTouchline,centerVector.y + 36.6)
+	draw_line(start,end,redChalk)
 	
-	pass
 	
+func drawGoalWest():
+	var start = Vector2(westTouchline,centerVector.y - 36.6)
+	var end   = Vector2(westTouchline,centerVector.y + 36.6)
+	draw_line(start,end,redChalk)
 
 func draw_circle_arc(center, radius, angle_from, angle_to, color):
     var nb_points = 32
@@ -82,5 +99,7 @@ func _draw():
 	drawNorthTouchline()
 	drawSouthTouchline()
 	drawPenaltyBoxEast()
+	drawPenaltyBoxWest()
 	
 	drawGoalEast()
+	drawGoalWest()
