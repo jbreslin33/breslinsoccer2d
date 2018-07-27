@@ -1,20 +1,21 @@
-extends Node2D
+extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var playerColor = Color(0,0,1)
-var startPostion = Vector2(200,200)
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+const WALK_SPEED = 200
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+var velocity = Vector2()
 
-func drawPlayer():
-	draw_circle(startPostion,5,playerColor)
-	
-func _draw():
-	drawPlayer()
+func _physics_process(delta):
+    velocity.y += delta
+
+    if Input.is_action_pressed("ui_left"):
+        velocity.x = -WALK_SPEED
+    elif Input.is_action_pressed("ui_right"):
+        velocity.x =  WALK_SPEED
+    else:
+        velocity.x = 0
+
+    # We don't need to multiply velocity by delta because MoveAndSlide already takes delta time into account.
+
+    # The second parameter of move_and_slide is the normal pointing up.
+    # In the case of a 2d platformer, in Godot upward is negative y, which translates to -1 as a normal.
+    move_and_slide(velocity, Vector2(0, -1))
