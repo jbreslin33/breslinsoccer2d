@@ -1,8 +1,31 @@
 extends KinematicBody2D
 
+#state machine
+var PlayerChaseState = load("res://player/states/PlayerChaseState.gd")
+var StateMachine = load("res://fsm/StateMachine.gd")
+
+#steering
+var SteeringBehaviors = load("res://steering/SteeringBehaviors.gd")
+
+var mStateMachine = 0
+var mPlayerChaseState = 0
+
+var mSteeringBehaviors = 0
+
 const WALK_SPEED = 200
 
 var velocity = Vector2()
+
+func _init():
+	
+	#steering
+	mSteeringBehaviors = SteeringBehaviors.new(self)
+
+	#state machine
+	mStateMachine = StateMachine.new(self)
+	mPlayerChaseState = PlayerChaseState.new()
+	mStateMachine.changeState(mPlayerChaseState)
+
 
 func _physics_process(delta):
     velocity.y += delta

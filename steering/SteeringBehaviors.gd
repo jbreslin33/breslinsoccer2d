@@ -1,4 +1,4 @@
-extends Node
+extends Object
 
 var mPlayer = 0
 var mBall = 0

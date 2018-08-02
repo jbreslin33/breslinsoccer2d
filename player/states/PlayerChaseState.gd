@@ -8,9 +8,9 @@ func _ready():
 func _enter(player):
 	player.mSteeringBehaviors.setSeek(true)
 	#player.isBallWithingKickingRange()
-	if (player.mMain):
-		player.mSteeringBehaviors.setTarget(player.mMain.mPlayerArray[1])
-
+	#if (player.mMain):
+	#	player.mSteeringBehaviors.setTarget(player.mMain.mPlayerArray[1])
+	#player.mSteeringBehaviors.setTarget(player.mMain.mPlayerArray[1])
 	
 func _execute(player):
 	pass

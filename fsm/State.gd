@@ -1,4 +1,4 @@
-extends Node
+extends Object
 
 func _enter(player):
 	
