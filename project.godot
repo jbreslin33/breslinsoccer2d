@@ -13,7 +13,7 @@ _global_script_classes=[  ]
 [application]
 
 config/name="breslinsoccer2d"
-run/main_scene="res://player/Player.tscn"
+run/main_scene="res://main/Main.tscn"
 config/icon="res://icon.png"
 
 [display]

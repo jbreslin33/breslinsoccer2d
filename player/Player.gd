@@ -13,7 +13,12 @@ func _physics_process(delta):
         velocity.x =  WALK_SPEED
     else:
         velocity.x = 0
-
+    if Input.is_action_pressed("ui_up"):
+        velocity.y = -WALK_SPEED
+    elif Input.is_action_pressed("ui_down"):
+        velocity.y =  WALK_SPEED
+    else:
+        velocity.y = 0
     # We don't need to multiply velocity by delta because MoveAndSlide already takes delta time into account.
 
     # The second parameter of move_and_slide is the normal pointing up.
