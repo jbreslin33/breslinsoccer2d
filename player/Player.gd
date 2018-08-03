@@ -39,11 +39,6 @@ func _ready():
 
 func _physics_process(delta):
 
-	#state machine
-	mStateMachine.update()
-	
-	mSteeringBehaviors.calculate()
-
 	if (mMain.mControllerPlayer == self):
 		if Input.is_action_pressed("ui_left"):
 			mVelocity.x = -WALK_SPEED
@@ -59,14 +54,13 @@ func _physics_process(delta):
 			mVelocity.y = 0
 	else:
 		#ai
+		mStateMachine.update()
+		mSteeringBehaviors.calculate()
 
-		pass
-    
-	
-	# We don't need to multiply velocity by delta because MoveAndSlide already takes delta time into account.
+		if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
+			var breakingRate = 0.8
+			mVelocity = mVelocity * breakingRate
 
-	# The second parameter of move_and_slide is the normal pointing up.
-	# In the case of a 2d platformer, in Godot upward is negative y, which translates to -1 as a normal.
 	move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
