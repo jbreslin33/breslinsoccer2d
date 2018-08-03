@@ -14,7 +14,7 @@ var mSteeringBehaviors = 0
 
 const WALK_SPEED = 70
 
-var velocity = Vector2()
+var velocity = Vector2(0,0)
 
 #team
 var mTeam = 0
@@ -36,7 +36,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	velocity.y += delta
+
 	if (mMain.mControllerPlayer == self):
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -WALK_SPEED
@@ -52,6 +52,7 @@ func _physics_process(delta):
 			velocity.y = 0
 	else:
 		#ai
+
 		pass
     
 	
