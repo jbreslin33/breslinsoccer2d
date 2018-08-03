@@ -21,51 +21,39 @@ var mDeceleration = 1
 func _init(player):
         mPlayer = player
 
-func seek(target):
+func accumalateForce(steeringForce,forceToAdd):
 	pass
 
+func calculate():
+	zeroSteeringForce()
+
+func sumForces():
+	pass
+
+func forwardComponent():
+	pass
+
+func sideComponent():
+	pass
+
+func zeroSteeringForce():
+	mSteeringForce.x = 0;
+	mSteeringForce.y = 0;
+
+func seekTarget(target):
+	pass
+
+
+#set
+func setSeekOn(b):
+	mSeek = b 
+
+
+#target
 func setTarget(target):
 	mTarget = target
 	
 func getTarget():
 	return mTarget
 
-func zeroSteeringForce():
-	mSteeringForce.x = 0;
-	mSteeringForce.y = 0;
-
-func calculate():
-	zeroSteeringForce()
-
-#set gets
-func setSeek(b):
-	print("setSeek true")
-	mSeek = b
-
-func setArrive(b):
-	mArrive = b
-
-func setSeparation(b):
-	mSeparation = b
-
-func setPursuit(b):
-	mPursuit = b
-
-func setInterpose(b):
-	mInterpose = b
-
-func getSeek():
-	return mSeek
-
-func getArrive():
-	return mArrive
-
-func getSeparation():
-	return mSeparation
-
-func getPursuit():
-	return mPursuit
-
-func getInterpose():
-	return mInterpose
 

@@ -6,7 +6,7 @@ func _ready():
 	pass
 
 func _enter(player):
-	player.mSteeringBehaviors.setSeek(true)
+	player.mSteeringBehaviors.setSeekOn(true)
 	print("PlayerChaseState:_enter")
 	#player.isBallWithingKickingRange()
 	#if (player.mMain):
