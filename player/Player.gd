@@ -12,7 +12,7 @@ var mPlayerChaseState = 0
 
 var mSteeringBehaviors = 0
 
-const WALK_SPEED = 200
+const WALK_SPEED = 70
 
 var velocity = Vector2()
 
