@@ -31,6 +31,8 @@ func calculate():
 func sumForces():
 	var force = Vector2(0,0)
 	
+	findNeighbors()
+	
 	return mSteeringForce
 	pass
 
@@ -60,5 +62,9 @@ func setTarget(target):
 	
 func getTarget():
 	return mTarget
+	
+
+func findNeighbors():
+	pass
 
 
