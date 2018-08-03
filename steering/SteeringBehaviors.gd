@@ -34,7 +34,7 @@ func sumForces():
 	findNeighbors()
 	
 	if (getSeekOn() == true):
-		force += seekTarget(mTarget)
+		force += getSeekTargetVelocity(mTarget)
 		pass
 	
 	return mSteeringForce
@@ -51,16 +51,16 @@ func zeroSteeringForce():
 	mSteeringForce.y = 0;
 	
 
-func seekTarget(target):
+func getSeekTargetVelocity(target):
 	var v = Vector2(0,0)
 	var desiredVelocity = target - mPlayer.position
 	desiredVelocity = desiredVelocity * mPlayer.WALK_SPEED
 	print("x:",desiredVelocity.x, "y:",desiredVelocity.y)
 	
 	
+	var seekTargetVelocity = desiredVelocity - mPlayer.mVelocity
 	
-	
-	return v
+	return seekTargetVelocity
 	
 	pass
 

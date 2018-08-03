@@ -14,7 +14,7 @@ var mSteeringBehaviors = 0
 
 const WALK_SPEED = 70
 
-var velocity = Vector2(0,0)
+var mVelocity = Vector2(0,0)
 
 #team
 var mTeam = 0
@@ -44,17 +44,17 @@ func _physics_process(delta):
 
 	if (mMain.mControllerPlayer == self):
 		if Input.is_action_pressed("ui_left"):
-			velocity.x = -WALK_SPEED
+			mVelocity.x = -WALK_SPEED
 		elif Input.is_action_pressed("ui_right"):
-			velocity.x =  WALK_SPEED
+			mVelocity.x =  WALK_SPEED
 		else:
-			velocity.x = 0
+			mVelocity.x = 0
 		if Input.is_action_pressed("ui_up"):
-			velocity.y = -WALK_SPEED
+			mVelocity.y = -WALK_SPEED
 		elif Input.is_action_pressed("ui_down"):
-			velocity.y =  WALK_SPEED
+			mVelocity.y =  WALK_SPEED
 		else:
-			velocity.y = 0
+			mVelocity.y = 0
 	else:
 		#ai
 
@@ -65,7 +65,7 @@ func _physics_process(delta):
 
 	# The second parameter of move_and_slide is the normal pointing up.
 	# In the case of a 2d platformer, in Godot upward is negative y, which translates to -1 as a normal.
-	move_and_slide(velocity, Vector2(0, -1))
+	move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
 	mTeam = team
