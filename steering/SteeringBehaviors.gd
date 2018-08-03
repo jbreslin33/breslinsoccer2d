@@ -33,6 +33,9 @@ func sumForces():
 	
 	findNeighbors()
 	
+	if (getSeekOn() == true):
+		pass
+	
 	return mSteeringForce
 	pass
 
@@ -55,6 +58,9 @@ func seekTarget(target):
 func setSeekOn(b):
 	mSeek = b 
 
+#get
+func getSeekOn():
+	return mSeek
 
 #target
 func setTarget(target):
