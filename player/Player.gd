@@ -37,6 +37,11 @@ func _ready():
 
 func _physics_process(delta):
 
+	#state machine
+	mStateMachine.update()
+	
+	mSteeringBehaviors.calculate()
+
 	if (mMain.mControllerPlayer == self):
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -WALK_SPEED

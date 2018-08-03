@@ -26,8 +26,12 @@ func accumalateForce(steeringForce,forceToAdd):
 
 func calculate():
 	zeroSteeringForce()
+	mSteeringForce = sumForces()
 
 func sumForces():
+	var force = Vector2(0,0)
+	
+	return mSteeringForce
 	pass
 
 func forwardComponent():
@@ -39,6 +43,7 @@ func sideComponent():
 func zeroSteeringForce():
 	mSteeringForce.x = 0;
 	mSteeringForce.y = 0;
+	
 
 func seekTarget(target):
 	pass
