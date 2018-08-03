@@ -33,7 +33,6 @@ func getTarget():
 func zeroSteeringForce():
 	mSteeringForce.x = 0;
 	mSteeringForce.y = 0;
-	mSteeringForce.z = 0;
 
 func calculate():
 	zeroSteeringForce()
