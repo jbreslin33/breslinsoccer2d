@@ -29,6 +29,11 @@ func accumalateForce(forceToAdd):
 		return false
 		
 	var magnitudeToAdd = forceToAdd.length()
+	
+	if (magnitudeToAdd > magnitudeRemaining):
+		magnitudeToAdd = magnitudeRemaining
+		
+	
 		
 	return true
 
