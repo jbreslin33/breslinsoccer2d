@@ -24,6 +24,12 @@ func _init(player):
 func accumalateForce(forceToAdd):
 	var magnitudeSoFar = mSteeringForce.length()
 	var magnitudeRemaining = mPlayer.mMaxForce - magnitudeSoFar
+	
+	if (magnitudeRemaining <= 0.0):
+		return false
+		
+	var magnitudeToAdd = forceToAdd.length()
+		
 	return true
 
 func calculate():
