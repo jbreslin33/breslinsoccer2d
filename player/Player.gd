@@ -16,6 +16,8 @@ const WALK_SPEED = 70
 
 var mVelocity = Vector2(0,0)
 
+var mMaxForce = 1.0
+
 #team
 var mTeam = 0
 
