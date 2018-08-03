@@ -33,8 +33,10 @@ func accumalateForce(forceToAdd):
 	if (magnitudeToAdd > magnitudeRemaining):
 		magnitudeToAdd = magnitudeRemaining
 		
-	
-		
+	var forceToAddNormalized = forceToAdd.normalized()
+	forceToAddNormalized = forceToAddNormalized * magnitudeToAdd
+	mSteeringForce += forceToAddNormalized
+			
 	return true
 
 func calculate():
