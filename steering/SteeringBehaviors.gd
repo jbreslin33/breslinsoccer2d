@@ -58,10 +58,12 @@ func sumForces():
 	return mSteeringForce
 	pass
 
-func forwardComponent():
+func getForwardComponent():
 	pass
 
-func sideComponent():
+func getSideComponent():
+	
+	return 
 	pass
 
 func zeroSteeringForce():
