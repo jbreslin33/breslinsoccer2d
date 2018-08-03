@@ -2,8 +2,8 @@ extends Object
 
 var mPlayer = 0
 var mBall = 0
-var mSteeringForce = Vector3(0,0,0) 
-var mTarget = Vector3(0,0,0)
+var mSteeringForce = Vector2(0,0) 
+var mTarget = Vector2(0,0)
 
 var mInterposeDistance = 0
 var mMultSeparation = 0
@@ -22,7 +22,13 @@ func _init(player):
         mPlayer = player
 
 func seek(target):
-        mTarget = target
+	pass
+
+func setTarget(target):
+	mTarget = target
+	
+func getTarget():
+	return mTarget
 
 func zeroSteeringForce():
 	mSteeringForce.x = 0;
@@ -63,5 +69,4 @@ func getPursuit():
 
 func getInterpose():
 	return mInterpose
-
 

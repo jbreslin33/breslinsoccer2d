@@ -30,7 +30,9 @@ func _init():
 	#state machine
 	mStateMachine = StateMachine.new(self)
 	mPlayerChaseState = PlayerChaseState.new()
-	mStateMachine.changeState(mPlayerChaseState)
+	
+func _ready():
+	pass
 
 
 func _physics_process(delta):
@@ -48,6 +50,9 @@ func _physics_process(delta):
 			velocity.y =  WALK_SPEED
 		else:
 			velocity.y = 0
+	else:
+		#ai
+		pass
     
 	
 	# We don't need to multiply velocity by delta because MoveAndSlide already takes delta time into account.
