@@ -21,8 +21,9 @@ var mDeceleration = 1
 func _init(player):
         mPlayer = player
 
-func accumalateForce(steeringForce,forceToAdd):
-	pass
+func accumalateForce(forceToAdd):
+	var magnitureSoFar = mSteeringForce.length()
+	return true
 
 func calculate():
 	zeroSteeringForce()
@@ -35,6 +36,9 @@ func sumForces():
 	
 	if (getSeekOn() == true):
 		force += getSeekTargetVelocity(mTarget)
+		#if (!AccumulateForce(m_vSteeringForce, force)) return m_vSteeringForce;^M
+		if (!accumalateForce(force)):
+			return mSteeringForce
 		pass
 	
 	return mSteeringForce
@@ -55,11 +59,11 @@ func getSeekTargetVelocity(target):
 	var v = Vector2(0,0)
 	var desiredVelocity = target - mPlayer.position
 	desiredVelocity = desiredVelocity * mPlayer.WALK_SPEED
-	print("x:",desiredVelocity.x, "y:",desiredVelocity.y)
+	#print("x:",desiredVelocity.x, "y:",desiredVelocity.y)
 	
 	
 	var seekTargetVelocity = desiredVelocity - mPlayer.mVelocity
-	
+	#print("x:",seekTargetVelocity.x, "y:",seekTargetVelocity.y)
 	return seekTargetVelocity
 	
 	pass
