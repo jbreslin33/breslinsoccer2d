@@ -7,11 +7,10 @@ func _ready():
 
 func _enter(player):
 	player.mSteeringBehaviors.setSeekOn(true)
-	print("PlayerChaseState:_enter")
-	#player.isBallWithingKickingRange()
-	#if (player.mMain):
-	#	player.mSteeringBehaviors.setTarget(player.mMain.mPlayerArray[1])
+
+	#set target to ball	
 	player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
+
 	print("x:",player.mSteeringBehaviors.getTarget().x,"y:",player.mSteeringBehaviors.getTarget().y)
 	
 func _execute(player):
