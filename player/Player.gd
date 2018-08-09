@@ -68,7 +68,7 @@ func _physics_process(delta):
 			mVelocity = mVelocity * breakingRate
 			
 		var turningForce = mSteeringBehaviors.getSideComponent()
-		print(turningForce)
+		#print(turningForce)
 
 		#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
 		
