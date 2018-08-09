@@ -62,9 +62,15 @@ func getForwardComponent():
 	pass
 
 func getSideComponent():
-	print("h")
-	return 
-	pass
+	#return m_pPlayer->Side().Dot(m_vSteeringForce) * m_pPlayer->MaxTurnRate();^
+	var x = mPlayer.mHeading.x
+	var y = mPlayer.mHeading.y *-1
+	mPlayer.mSide.x = x
+	mPlayer.mSide.y = y
+	
+	var mDot = mPlayer.mSide.dot(mSteeringForce)
+	var sideComponent = mDot * mPlayer.mMaxTurnRate
+	return sideComponent
 
 func zeroSteeringForce():
 	mSteeringForce.x = 0;

@@ -15,8 +15,12 @@ var mSteeringBehaviors = 0
 const WALK_SPEED = 70
 
 var mVelocity = Vector2(0,0)
+var mHeading = Vector2(0,0)
+var mSide = Vector2(0,0)
 
 var mMaxForce = 1.0
+var mMaxTurnRate = 0.4
+
 
 #team
 var mTeam = 0
@@ -58,13 +62,16 @@ func _physics_process(delta):
 		mSteeringBehaviors.calculate()
 
 		#brake
-		print("x:",mSteeringBehaviors.mSteeringForce.x)
+		#print("x:",mSteeringBehaviors.mSteeringForce.x)
 		if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
 			var breakingRate = 0.8
 			mVelocity = mVelocity * breakingRate
 			
-			var turningForce = mSteeringBehaviors.getSideComponent()
+		var turningForce = mSteeringBehaviors.getSideComponent()
+		print(turningForce)
 
+		#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
+		
 	move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
