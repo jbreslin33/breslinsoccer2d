@@ -57,6 +57,8 @@ func _physics_process(delta):
 		mStateMachine.update()
 		mSteeringBehaviors.calculate()
 
+		#brake
+		print("x:",mSteeringBehaviors.mSteeringForce.x)
 		if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
 			var breakingRate = 0.8
 			mVelocity = mVelocity * breakingRate

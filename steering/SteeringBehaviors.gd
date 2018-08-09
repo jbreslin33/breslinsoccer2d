@@ -62,7 +62,7 @@ func getForwardComponent():
 	pass
 
 func getSideComponent():
-	
+	print("h")
 	return 
 	pass
 
