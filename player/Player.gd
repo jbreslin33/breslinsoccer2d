@@ -71,7 +71,7 @@ func _physics_process(delta):
 		#print(turningForce)
 
 		#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
-		
+		turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
 	move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
