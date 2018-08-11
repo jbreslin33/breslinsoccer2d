@@ -42,37 +42,37 @@ func _ready():
 
 
 func _physics_process(delta):
-
-	if (mMain.mControllerPlayer == self):
-		if Input.is_action_pressed("ui_left"):
-			mVelocity.x = -WALK_SPEED
-		elif Input.is_action_pressed("ui_right"):
-			mVelocity.x =  WALK_SPEED
+	if (mMain):
+		if (mMain.mControllerPlayer == self):
+			if Input.is_action_pressed("ui_left"):
+				mVelocity.x = -WALK_SPEED
+			elif Input.is_action_pressed("ui_right"):
+				mVelocity.x =  WALK_SPEED
+			else:
+				mVelocity.x = 0
+			if Input.is_action_pressed("ui_up"):
+				mVelocity.y = -WALK_SPEED
+			elif Input.is_action_pressed("ui_down"):
+				mVelocity.y =  WALK_SPEED
+			else:
+				mVelocity.y = 0
 		else:
-			mVelocity.x = 0
-		if Input.is_action_pressed("ui_up"):
-			mVelocity.y = -WALK_SPEED
-		elif Input.is_action_pressed("ui_down"):
-			mVelocity.y =  WALK_SPEED
-		else:
-			mVelocity.y = 0
-	else:
-		#ai
-		mStateMachine.update()
-		mSteeringBehaviors.calculate()
+			#ai
+			mStateMachine.update()
+			mSteeringBehaviors.calculate()
 
-		#brake
-		#print("x:",mSteeringBehaviors.mSteeringForce.x)
-		if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
-			var breakingRate = 0.8
-			mVelocity = mVelocity * breakingRate
+			#brake
+			#print("x:",mSteeringBehaviors.mSteeringForce.x)
+			if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
+				var breakingRate = 0.8
+				mVelocity = mVelocity * breakingRate
 			
-		var turningForce = mSteeringBehaviors.getSideComponent()
-		#print(turningForce)
+			var turningForce = mSteeringBehaviors.getSideComponent()
+			#print(turningForce)
 
-		#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
-		turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
-	move_and_slide(mVelocity, Vector2(0, -1))
+			#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
+			turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
+		move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
 	mTeam = team
