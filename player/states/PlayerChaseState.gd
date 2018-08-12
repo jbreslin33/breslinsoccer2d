@@ -14,6 +14,9 @@ func _execute(player):
 	player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
 	#print("x:",player.mSteeringBehaviors.getTarget().x,"y:",player.mSteeringBehaviors.getTarget().y)
 	
+	if (player.isWithinShootingRange()):
+		player.mStateMachine.changeState(player.mPlayerShootState)
+		#print("shoot")
 	
 	pass
 	

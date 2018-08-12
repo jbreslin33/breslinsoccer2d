@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 #state machine
 var PlayerChaseState = load("res://player/states/PlayerChaseState.gd")
+var PlayerShootState = load("res://player/states/PlayerShootState.gd")
 var StateMachine = load("res://fsm/StateMachine.gd")
 
 #steering
@@ -9,19 +10,25 @@ var SteeringBehaviors = load("res://steering/SteeringBehaviors.gd")
 
 var mStateMachine = 0
 var mPlayerChaseState = 0
+var mPlayerShootState = 0
 
 var mSteeringBehaviors = 0
 
+#velocity
 var mRunSpeed = 70
 var mMaxSpeed = 70
 
 var mVelocity = Vector2(0,0)
+
+#rotation
 var mHeading = Vector2(0,0)
 var mSide = Vector2(0,0)
 
 var mMaxForce = 1.0
 var mMaxTurnRate = 0.4
 
+#shooting
+var mShootingRange = 500
 
 #team
 var mTeam = 0
@@ -37,6 +44,7 @@ func _init():
 	#state machine
 	mStateMachine = StateMachine.new(self)
 	mPlayerChaseState = PlayerChaseState.new()
+	mPlayerShootState = PlayerShootState.new()
 	
 func _ready():
 	pass
@@ -92,4 +100,16 @@ func setTeam(team):
 
 func setMain(main):
 	mMain = main
+	
+func isWithinShootingRange():
+	var p = position
+	var b = mMain.mBall.position
+	var d = p.distance_squared_to(b)
+	if (d < abs(mShootingRange)):
+		return true
+	else:
+		return false
+
+		
+	
 	

@@ -6,13 +6,12 @@ func _ready():
 	pass
 
 func _enter(player):
-	player.mSteeringBehaviors.setSeekOn(true)
-	
+	#player.mSteeringBehaviors.setSeekOn(true)
+	print("enter shoot state")
 func _execute(player):
 	
-	#set target to the ball position
-	player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
-	#print("x:",player.mSteeringBehaviors.getTarget().x,"y:",player.mSteeringBehaviors.getTarget().y)
+	#player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
+
 	
 	
 	pass
