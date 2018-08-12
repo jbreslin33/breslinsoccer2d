@@ -80,7 +80,7 @@ func zeroSteeringForce():
 func getSeekTargetVelocity(target):
 	var v = Vector2(0,0)
 	var desiredVelocity = target - mPlayer.position
-	desiredVelocity = desiredVelocity * mPlayer.WALK_SPEED
+	desiredVelocity = desiredVelocity * mPlayer.mRunSpeed
 	#print("x:",desiredVelocity.x, "y:",desiredVelocity.y)
 	
 	

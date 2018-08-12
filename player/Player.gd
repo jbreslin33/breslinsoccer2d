@@ -12,7 +12,8 @@ var mPlayerChaseState = 0
 
 var mSteeringBehaviors = 0
 
-const WALK_SPEED = 70
+var mRunSpeed = 70
+var mMaxSpeed = 70
 
 var mVelocity = Vector2(0,0)
 var mHeading = Vector2(0,0)
@@ -45,21 +46,23 @@ func _physics_process(delta):
 	if (mMain):
 		if (mMain.mControllerPlayer == self):
 			if Input.is_action_pressed("ui_left"):
-				mVelocity.x = -WALK_SPEED
+				mVelocity.x = -mRunSpeed
 			elif Input.is_action_pressed("ui_right"):
-				mVelocity.x =  WALK_SPEED
+				mVelocity.x =  mRunSpeed
 			else:
 				mVelocity.x = 0
 			if Input.is_action_pressed("ui_up"):
-				mVelocity.y = -WALK_SPEED
+				mVelocity.y = -mRunSpeed
 			elif Input.is_action_pressed("ui_down"):
-				mVelocity.y =  WALK_SPEED
+				mVelocity.y =  mRunSpeed
 			else:
 				mVelocity.y = 0
 		else:
 			#ai
 			mStateMachine.update()
 			mSteeringBehaviors.calculate()
+			
+			#print(mSteeringBehaviors.mSteeringForce)
 
 			#brake
 			#print("x:",mSteeringBehaviors.mSteeringForce.x)
@@ -72,6 +75,9 @@ func _physics_process(delta):
 
 			#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
 			turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
+			
+			mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
+		
 		move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
