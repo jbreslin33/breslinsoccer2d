@@ -70,13 +70,20 @@ func _physics_process(delta):
 				var breakingRate = 0.8
 				mVelocity = mVelocity * breakingRate
 			
+			#rotation
 			var turningForce = mSteeringBehaviors.getSideComponent()
 			#print(turningForce)
 
 			#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
 			turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
+			#print(turningForce)
+			var v = Vector2(0,0)
+			look_at(mSteeringBehaviors.mTarget)
+			#look_at(v)
 			
 			mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
+		
+		
 		
 		move_and_slide(mVelocity, Vector2(0, -1))
 	
