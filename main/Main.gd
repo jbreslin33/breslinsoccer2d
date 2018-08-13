@@ -41,7 +41,7 @@ func _ready():
 	
 	setControllerPlayer($HomePlayer1)
 	
-	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
+	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerGoToShootingPositionState)	
 	pass
 
 func setControllerPlayer(player):

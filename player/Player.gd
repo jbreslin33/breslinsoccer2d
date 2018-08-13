@@ -3,6 +3,7 @@ extends KinematicBody2D
 #state machine
 var PlayerChaseState = load("res://player/states/PlayerChaseState.gd")
 var PlayerShootState = load("res://player/states/PlayerShootState.gd")
+var PlayerGoToShootingPositionState = load("res://player/states/PlayerGoToShootingPositionState.gd")
 var StateMachine = load("res://fsm/StateMachine.gd")
 
 #steering
@@ -11,6 +12,7 @@ var SteeringBehaviors = load("res://steering/SteeringBehaviors.gd")
 var mStateMachine = 0
 var mPlayerChaseState = 0
 var mPlayerShootState = 0
+var mPlayerGoToShootingPositionState = 0
 
 var mSteeringBehaviors = 0
 
@@ -48,7 +50,7 @@ func _init():
 	mStateMachine = StateMachine.new(self)
 	mPlayerChaseState = PlayerChaseState.new()
 	mPlayerShootState = PlayerShootState.new()
-	
+	mPlayerGoToShootingPositionState = PlayerGoToShootingPositionState.new()	
 func _ready():
 	pass
 
@@ -113,6 +115,8 @@ func isWithinShootingRange():
 	else:
 		return false
 
-		
+func getShootingPosition():
+	
+	pass	
 	
 	
