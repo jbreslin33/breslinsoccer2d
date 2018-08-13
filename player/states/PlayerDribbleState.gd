@@ -28,10 +28,13 @@ func _execute(player):
 	
 	if (player.mMain.mBall.mPlayer != player):
 		player.mStateMachine.changeState(player.mPlayerChaseState)
+	else:
+		#add something to dribble
 	#if (player.isWithinShootingRange()):
 	#	player.mStateMachine.changeState(player.mPlayerShootState)
 	
-	pass
+	#dribble to what side...
+		pass
 	
 func _exit(player):
 	
