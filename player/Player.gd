@@ -18,6 +18,9 @@ var mSteeringBehaviors = 0
 var mRunSpeed = 70
 var mMaxSpeed = 70
 
+#kick
+var mMaxKickForce = 200
+
 var mVelocity = Vector2(0,0)
 
 #rotation
