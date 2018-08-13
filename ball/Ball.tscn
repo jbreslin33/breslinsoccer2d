@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ball/Ball.gd" type="Script" id=1]
 [ext_resource path="res://ball/Sprite.gd" type="Script" id=2]
-
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.0
 
 [node name="Ball" type="KinematicBody2D"]
 position = Vector2( 443, 235 )
@@ -20,9 +15,6 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="CollisionShape2D"]
+[node name="Sprite" type="Sprite" parent="."]
 script = ExtResource( 2 )
 
