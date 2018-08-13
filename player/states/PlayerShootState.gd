@@ -8,8 +8,12 @@ func _ready():
 func _enter(player):
 	#player.mSteeringBehaviors.setSeekOn(true)
 	print("enter shoot state")
-	var direction = Vector2(0,-400)
-	player.mMain.mBall.kick(direction,player.mMaxKickForce)
+	#line up for shot
+	
+	#var target = 
+	#var direction = Vector2(0,-400)
+	#var n = direction.normalized()
+	#player.mMain.mBall.kick(player.position,n)
 func _execute(player):
 	
 	#player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
