@@ -26,6 +26,8 @@ func _execute(player):
 	
 	player.mSteeringBehaviors.setTarget(goalVector)
 	
+	if (player.mMain.mBall.mPlayer != player):
+		player.mStateMachine.changeState(player.mPlayerChaseState)
 	#if (player.isWithinShootingRange()):
 	#	player.mStateMachine.changeState(player.mPlayerShootState)
 	
