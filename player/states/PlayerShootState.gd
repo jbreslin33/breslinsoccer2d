@@ -20,7 +20,7 @@ func _enter(player):
 	var desiredVelocity = goalVector - player.position
 	var normalizedDesiredVelocity = desiredVelocity.normalized() 
 	var kickImpulse = normalizedDesiredVelocity * 0.05
-	player.mMain.mBall.kick(player.mMain.mBall.position,kickImpulse)
+	#player.mMain.mBall.kick(player.mMain.mBall.position,kickImpulse)
 	
 func _execute(player):
 	#player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)

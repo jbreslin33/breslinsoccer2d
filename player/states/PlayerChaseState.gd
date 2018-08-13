@@ -11,12 +11,12 @@ func _enter(player):
 func _execute(player):
 	
 	#set target to the ball position
-	var goalVector = Vector2(10,360)
+	#var goalVector = Vector2(10,360)
 	
 	player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
 	
-	if (player.isWithinShootingRange()):
-		player.mStateMachine.changeState(player.mPlayerShootState)
+	#if (player.isWithinShootingRange()):
+	#	player.mStateMachine.changeState(player.mPlayerShootState)
 	
 	pass
 	

@@ -120,7 +120,7 @@ func getShootingPosition():
 	var goalVector = Vector2(10,360)
 	#return goalVector
 	var distanceFromBall = 30
-	var distanceAway = distanceFromBall + mMain.mBall.mRadius
+	var distanceAway = distanceFromBall + 5
 	var toObject = mMain.mBall.position - goalVector
 	var toObjectNormalized = toObject.normalized()
 	var scaledSpot = (toObjectNormalized * distanceAway) + mMain.mBall.position
