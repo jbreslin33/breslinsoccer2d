@@ -14,12 +14,16 @@ func _execute(player):
 	#var goalVector = Vector2(10,360)
 	var shootingPosition = player.getShootingPosition()
 	player.mSteeringBehaviors.setTarget(shootingPosition)
+	
 	#player.mSteeringBehaviors.setTarget(goalVector)
 	#print("x:",player.mSteeringBehaviors.getTarget().x,"y:",player.mSteeringBehaviors.getTarget().y)
 	
+	if ( abs(player.position.x - shootingPosition.x) < 1 && abs(player.position.y - shootingPosition.y) < 1):
+		player.mStateMachine.changeState(player.mPlayerShootState)
+	
 	#if (player.isWithinShootingRange()):
 	#	player.mStateMachine.changeState(player.mPlayerShootState)
-		#print("shoot")
+	#	#print("shoot")
 	
 	pass
 	

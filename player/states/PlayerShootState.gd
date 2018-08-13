@@ -14,9 +14,19 @@ func _enter(player):
 	#var direction = Vector2(0,-400)
 	#var n = direction.normalized()
 	#player.mMain.mBall.kick(player.position,n)
-func _execute(player):
+	#var goalVector = Vector2(10,360)
+	#player.mSteeringBehaviors.setTarget(player.mMain.mBall.postion)
+	var goalVector = Vector2(10,360)
+	var desiredVelocity = goalVector - player.position
+	var normalizedDesiredVelocity = desiredVelocity.normalized() 
+	var kickImpulse = normalizedDesiredVelocity * 0.05
+	player.mMain.mBall.kick(player.mMain.mBall.position,kickImpulse)
 	
+func _execute(player):
 	#player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
+	
+	
+	#player.mStateMachine.changeState(player.mPlayerGoToShootingPositionState)
 
 	#var start = Vector2(westTouchline,centerVector.y - 36.6)
 	#var end   = Vector2(westTouchline,centerVector.y + 36.6)

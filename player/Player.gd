@@ -33,7 +33,7 @@ var mMaxForce = 1.0
 var mMaxTurnRate = 0.4
 
 #shooting
-var mShootingRange = 500
+var mShootingRange = 2000
 
 #team
 var mTeam = 0
