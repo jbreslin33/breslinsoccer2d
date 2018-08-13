@@ -10,7 +10,7 @@ var Team = load("res://team/team.gd")
 var mHomeTeam = 0
 var mAwayTeam = 0
 var mBall = 0
-var mControllerPlayer = 0
+var mControllingPlayer = 0
 
 const WALK_SPEED = 70
 
@@ -39,13 +39,13 @@ func _ready():
 	$AwayPlayer1.setMain(self)
 	$HomePlayer1.setMain(self)
 	
-	setControllerPlayer($HomePlayer1)
+	setControllingPlayer($HomePlayer1)
 	
 	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
 	pass
 
-func setControllerPlayer(player):
-	mControllerPlayer = player
+func setControllingPlayer(player):
+	mControllingPlayer = player
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

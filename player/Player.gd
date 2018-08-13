@@ -60,7 +60,7 @@ func _ready():
 
 func _physics_process(delta):
 	if (mMain):
-		if (mMain.mControllerPlayer == self):
+		if (mMain.mControllingPlayer == self):
 			if Input.is_action_pressed("ui_left"):
 				mVelocity.x = -mRunSpeed
 			elif Input.is_action_pressed("ui_right"):
