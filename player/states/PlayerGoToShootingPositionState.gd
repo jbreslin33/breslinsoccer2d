@@ -7,17 +7,18 @@ func _ready():
 
 func _enter(player):
 	player.mSteeringBehaviors.setSeekOn(true)
-	
+	print("enter pos state")
 func _execute(player):
 	
 	#set target to the ball position
-	var goalVector = Vector2(10,360)
-	#player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
-	player.mSteeringBehaviors.setTarget(goalVector)
+	#var goalVector = Vector2(10,360)
+	var shootingPosition = player.getShootingPosition()
+	player.mSteeringBehaviors.setTarget(shootingPosition)
+	#player.mSteeringBehaviors.setTarget(goalVector)
 	#print("x:",player.mSteeringBehaviors.getTarget().x,"y:",player.mSteeringBehaviors.getTarget().y)
 	
-	if (player.isWithinShootingRange()):
-		player.mStateMachine.changeState(player.mPlayerShootState)
+	#if (player.isWithinShootingRange()):
+	#	player.mStateMachine.changeState(player.mPlayerShootState)
 		#print("shoot")
 	
 	pass

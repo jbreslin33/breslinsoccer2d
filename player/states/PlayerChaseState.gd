@@ -7,7 +7,7 @@ func _ready():
 
 func _enter(player):
 	player.mSteeringBehaviors.setSeekOn(true)
-	
+	print("enter chase")
 func _execute(player):
 	
 	#set target to the ball position
