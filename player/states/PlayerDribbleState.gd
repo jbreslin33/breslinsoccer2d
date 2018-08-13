@@ -7,7 +7,7 @@ func _ready():
 
 func _enter(player):
 	#player.mSteeringBehaviors.setSeekOn(true)
-	print("enter drible")
+	print("enter dribble")
 	
 	#take control of ball
 	print("take control of ball")
@@ -18,7 +18,11 @@ func _execute(player):
 	
 	
 	#set target to the ball position
-	var goalVector = Vector2(10,360)
+	var goalVector = null
+	if (player.mTeam == player.mMain.mHomeTeam):
+		goalVector = Vector2(1060,360)
+	else:
+		goalVector = Vector2(10,360)		
 	
 	player.mSteeringBehaviors.setTarget(goalVector)
 	

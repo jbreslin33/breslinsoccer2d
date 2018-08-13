@@ -7,10 +7,10 @@ extends Node2D
 #team
 var Team = load("res://team/team.gd")
 
-var mHomeTeam = 0
-var mAwayTeam = 0
+var mHomeTeam = null
+var mAwayTeam = null
 var mBall = 0
-var mControllingPlayer = 0
+var mControllingPlayer = null
 
 const WALK_SPEED = 70
 
@@ -39,9 +39,12 @@ func _ready():
 	$AwayPlayer1.setMain(self)
 	$HomePlayer1.setMain(self)
 	
-	setControllingPlayer($HomePlayer1)
+	#setControllingPlayer($HomePlayer1)
 	
 	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
+	$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
+	
+	
 	pass
 
 func setControllingPlayer(player):

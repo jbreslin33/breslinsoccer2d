@@ -38,10 +38,10 @@ var mMaxTurnRate = 0.4
 var mShootingRange = 2000
 
 #team
-var mTeam = 0
+var mTeam = null
 
 #main
-var mMain = 0
+var mMain = null
 
 func _init():
 

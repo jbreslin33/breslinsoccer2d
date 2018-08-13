@@ -17,6 +17,10 @@ func _execute(player):
 	
 	#check if you collide or are close enough
 	if ( abs(player.position.x - player.mMain.mBall.position.x) < 1 && abs(player.position.y - player.mMain.mBall.position.y) < 1):
+		#try to get posssession
+		player.mMain.mBall.resolveConflict(self)
+		
+	if (self == player.mMain.mBall.mPlayer):
 		player.mStateMachine.changeState(player.mPlayerDribbleState)
 	#if (player.isWithinShootingRange()):
 	#	player.mStateMachine.changeState(player.mPlayerShootState)
