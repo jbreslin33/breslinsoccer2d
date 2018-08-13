@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 #state machine
 var PlayerChaseState = load("res://player/states/PlayerChaseState.gd")
+var PlayerDribbleState = load("res://player/states/PlayerDribbleState.gd")
 var PlayerShootState = load("res://player/states/PlayerShootState.gd")
 var PlayerGoToShootingPositionState = load("res://player/states/PlayerGoToShootingPositionState.gd")
 var StateMachine = load("res://fsm/StateMachine.gd")
@@ -11,6 +12,7 @@ var SteeringBehaviors = load("res://steering/SteeringBehaviors.gd")
 
 var mStateMachine = 0
 var mPlayerChaseState = 0
+var mPlayerDribbleState = 0
 var mPlayerShootState = 0
 var mPlayerGoToShootingPositionState = 0
 
@@ -49,6 +51,7 @@ func _init():
 	#state machine
 	mStateMachine = StateMachine.new(self)
 	mPlayerChaseState = PlayerChaseState.new()
+	mPlayerDribbleState = PlayerDribbleState.new()
 	mPlayerShootState = PlayerShootState.new()
 	mPlayerGoToShootingPositionState = PlayerGoToShootingPositionState.new()	
 func _ready():
