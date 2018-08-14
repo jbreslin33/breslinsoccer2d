@@ -6,20 +6,26 @@ extends KinematicBody2D
 var mPlayer = null
 var mPlayerTimedOut = null
 var mVelocity = Vector2(0,0)
-var mPlayerDribbleBoost = 1.1
-var friction = 0.2
+var mFriction = 0.05
+
+#physics
+var mInitialVelocity = Vector2(0,0)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-func kick():
-	
+func kick(initialVelocity):
+	mInitialVelocity = initialVelocity
+	mVelocity = mInitialVelocity
 	pass
 
 func _physics_process(delta):
-	if (mPlayer):
-		mVelocity = (mPlayer.mVelocity * mPlayerDribbleBoost) * friction
+	#if (mPlayer):
+	#	mVelocity = (mPlayer.mVelocity * mPlayerDribbleBoost) * friction
 		#print(mVelocity.x)
+	mVelocity = mVelocity * mFriction
 	move_and_slide(mVelocity, Vector2(0, -1))
 
 func resolveConflict(player):
@@ -27,6 +33,7 @@ func resolveConflict(player):
 		# do nothing you already have ball
 		pass
 	else:
+		#stop ball
 		mPlayer = player
 		
 	pass

@@ -16,8 +16,10 @@ func _enter(player):
 func _execute(player):
 	#have ball follow player
 	
+	#kick ball to goal
+	player.mMain.mBall.kick(player.mVelocity * 10)
 	
-	#set target to the ball position
+	#head to goal
 	var goalVector = null
 	if (player.mTeam == player.mMain.mHomeTeam):
 		goalVector = Vector2(1060,360)
@@ -25,6 +27,8 @@ func _execute(player):
 		goalVector = Vector2(10,360)		
 	
 	player.mSteeringBehaviors.setTarget(goalVector)
+	
+	
 	
 	if (player.mMain.mBall.mPlayer != player):
 		player.mStateMachine.changeState(player.mPlayerChaseState)
