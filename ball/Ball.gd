@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -14,6 +14,7 @@ var mInitialVelocity = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_gravity_scale(0)
 	pass # Replace with function body.
 
 func kick(initialVelocity):
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	#	mVelocity = (mPlayer.mVelocity * mPlayerDribbleBoost) * friction
 		#print(mVelocity.x)
 	mVelocity = mVelocity * mFriction
-	move_and_slide(mVelocity, Vector2(0, -1))
+	#move_and_slide(mVelocity, Vector2(0, -1))
 
 func resolveConflict(player):
 	if (player == mPlayer):
