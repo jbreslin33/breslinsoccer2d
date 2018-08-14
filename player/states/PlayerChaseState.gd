@@ -16,7 +16,8 @@ func _execute(player):
 	player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
 	
 	#check if you collide or are close enough
-	if ( abs(player.position.x - player.mMain.mBall.position.x) < 1 && abs(player.position.y - player.mMain.mBall.position.y) < 1):
+	if ( abs(player.position.x - player.mMain.mBall.position.x) < 20 && abs(player.position.y - player.mMain.mBall.position.y) < 20):
+		player.mStateMachine.changeState(player.mPlayerDribbleState)
 		#try to get posssession
 		#player.mMain.mBall.resolveConflict(self)
 		pass	

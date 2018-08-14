@@ -17,9 +17,11 @@ func _ready():
 	set_gravity_scale(0)
 	pass # Replace with function body.
 
-func kick(initialVelocity):
-	mInitialVelocity = initialVelocity
-	mVelocity = mInitialVelocity
+func kick(offset,impulse):
+	#mInitialVelocity = initialVelocity
+	#Velocity = mInitialVelocity
+	#apply_impulse(offset,impulse)
+	apply_central_impulse(impulse)
 	pass
 
 func _physics_process(delta):
