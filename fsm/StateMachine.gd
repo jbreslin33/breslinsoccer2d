@@ -1,9 +1,9 @@
 extends Node
 
-var mOwner = 0
-var mCurrentState = 0
-var mPreviousState = 0;
-var mGlobalState = 0;
+var mOwner = null
+var mCurrentState = null
+var mPreviousState = null;
+var mGlobalState = null;
 
 func _init(owner):
 	mOwner = owner

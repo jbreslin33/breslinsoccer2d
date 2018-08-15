@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var mSprite = get_node("AnimatedSprite")
+
 #state machine
 var PlayerChaseState = load("res://player/states/PlayerChaseState.gd")
 var PlayerDribbleState = load("res://player/states/PlayerDribbleState.gd")
@@ -10,13 +12,13 @@ var StateMachine = load("res://fsm/StateMachine.gd")
 #steering
 var SteeringBehaviors = load("res://steering/SteeringBehaviors.gd")
 
-var mStateMachine = 0
-var mPlayerChaseState = 0
-var mPlayerDribbleState = 0
-var mPlayerShootState = 0
-var mPlayerGoToShootingPositionState = 0
+var mStateMachine = null
+var mPlayerChaseState = null
+var mPlayerDribbleState = null
+var mPlayerShootState = null
+var mPlayerGoToShootingPositionState = null
 
-var mSteeringBehaviors = 0
+var mSteeringBehaviors = null
 
 #velocity
 var mRunSpeed = 70
@@ -44,7 +46,7 @@ var mTeam = null
 var mMain = null
 
 #sprite
-var mSprite = null
+
 
 func _init():
 
@@ -105,6 +107,11 @@ func _physics_process(delta):
 			
 			mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 		
+	
+			#animations
+			if (mStateMachine.mCurrentState == mPlayerDribbleState):
+				mSprite.play("dribble")
+				pass
 	
 		move_and_slide(mVelocity, Vector2(0, -1))
 	
