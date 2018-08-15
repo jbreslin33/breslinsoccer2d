@@ -143,3 +143,14 @@ func getShootingPosition():
 	pass	
 	
 	
+
+
+
+func _on_BallArea2D_body_entered(body):
+	if (body == self):
+		if (body.mTeam == mMain.mHomeTeam):
+			print("home team hit ball")
+		if (body.mTeam == mMain.mAwayTeam):
+			print("away team hit ball")
+		
+

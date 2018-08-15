@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://main/Main.gd" type="Script" id=1]
 [ext_resource path="res://pitch/Pitch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ball/Ball.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,3 +23,16 @@ position = Vector2( 911, 287 )
 
 [node name="Ball" parent="." instance=ExtResource( 4 )]
 
+[node name="BallArea2D" type="Area2D" parent="Ball"]
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball/BallArea2D"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Ball/BallArea2D" to="HomePlayer1" method="_on_BallArea2D_body_entered"]
