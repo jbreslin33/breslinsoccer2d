@@ -11,6 +11,7 @@ var mHomeTeam = null
 var mAwayTeam = null
 var mBall = 0
 var mControllingPlayer = null
+var mPlayerInPossession = null
 
 const WALK_SPEED = 70
 

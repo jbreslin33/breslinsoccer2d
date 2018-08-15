@@ -43,6 +43,9 @@ var mTeam = null
 #main
 var mMain = null
 
+#sprite
+var mSprite = null
+
 func _init():
 
 	#steering
@@ -54,7 +57,10 @@ func _init():
 	mPlayerDribbleState = PlayerDribbleState.new()
 	mPlayerShootState = PlayerShootState.new()
 	mPlayerGoToShootingPositionState = PlayerGoToShootingPositionState.new()	
+	
 func _ready():
+	mSprite = $Sprite
+	mSprite.mPlayer = self
 	pass
 
 
@@ -99,8 +105,7 @@ func _physics_process(delta):
 			
 			mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 		
-		
-		
+	
 		move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
