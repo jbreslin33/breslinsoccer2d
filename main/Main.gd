@@ -40,10 +40,10 @@ func _ready():
 	$AwayPlayer1.setMain(self)
 	$HomePlayer1.setMain(self)
 	
-	#setControllingPlayer($HomePlayer1)
+	setControllingPlayer($HomePlayer1)
 	
 	#$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
-	$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
+	#$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
 	
 	
 	pass
