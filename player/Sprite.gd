@@ -4,7 +4,7 @@ var playerColor = Color(0,0,1)
 var playerPosition = Vector2(0,0)
 
 func drawPlayer():
-	draw_circle(playerPosition,5,playerColor)
+	draw_circle(playerPosition,50,playerColor)
 
 func _draw():
 	drawPlayer()
