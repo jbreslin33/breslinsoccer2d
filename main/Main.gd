@@ -11,8 +11,7 @@ var mHomeTeam = null
 var mAwayTeam = null
 var mBall = 0
 var mControllingPlayer = null
-var mPlayerInPossession = null
-
+    
 const WALK_SPEED = 70
 
 var velocity = Vector2()
@@ -23,7 +22,9 @@ func _init():
 	mHomeTeam = Team.new(self)
 	mAwayTeam = Team.new(self)
 	
-	mBall = $Ball
+	
+	
+
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -31,6 +32,8 @@ func _ready():
 	
 	#ball
 	mBall = $Ball
+	mBall.mMain = self
+	
 	
 	#set players to teams
 	$AwayPlayer1.setTeam(mAwayTeam)
@@ -39,6 +42,10 @@ func _ready():
 	#set player main
 	$AwayPlayer1.setMain(self)
 	$HomePlayer1.setMain(self)
+	
+	#set bal
+	$AwayPlayer1.setBall(mBall)
+	$HomePlayer1.setBall(mBall)	
 	
 	setControllingPlayer($HomePlayer1)
 	

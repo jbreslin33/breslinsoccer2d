@@ -4,6 +4,7 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 var mPlayer = null
+var mMain = null
 var mPlayerTimedOut = null
 var mVelocity = Vector2(0,0)
 var mFriction = 0.05
@@ -30,16 +31,8 @@ func _physics_process(delta):
 		#print(mVelocity.x)
 	mVelocity = mVelocity * mFriction
 	#move_and_slide(mVelocity, Vector2(0, -1))
+	
+	if (mPlayer != null):
+		var v = Vector2(0,0)
+		set_position(v)
 
-func resolveConflict(player):
-	if (player == mPlayer):
-		# do nothing you already have ball
-		pass
-	else:
-		#stop ball
-		mPlayer = player
-		
-	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

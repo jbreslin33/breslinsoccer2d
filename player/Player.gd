@@ -45,6 +45,8 @@ var mTeam = null
 #main
 var mMain = null
 
+var mBall = null
+
 #sprite
 
 
@@ -109,9 +111,16 @@ func _physics_process(delta):
 		
 	
 			#animations
-			if (mStateMachine.mCurrentState == mPlayerDribbleState):
-				mSprite.play("dribble")
-				pass
+			#if (mStateMachine.mCurrentState == mPlayerDribbleState):
+			#	mSprite.play("dribble")
+			#	pass
+	
+		if (mBall.mPlayer == self):
+			#print("d")
+			mSprite.play("dribble")
+		else:
+			#print("r")
+			mSprite.play("run")
 	
 		move_and_slide(mVelocity, Vector2(0, -1))
 	
@@ -120,6 +129,9 @@ func setTeam(team):
 
 func setMain(main):
 	mMain = main
+	
+func setBall(ball):
+	mBall = ball
 	
 func isWithinShootingRange():
 	var p = position
@@ -148,6 +160,7 @@ func getShootingPosition():
 
 func _on_BallArea2D_body_entered(body):
 	if (body == self):
+		mBall.mPlayer = self
 		if (body.mTeam == mMain.mHomeTeam):
 			print("home team hit ball")
 		if (body.mTeam == mMain.mAwayTeam):
