@@ -27,6 +27,9 @@ func _enter(player):
 	#also lets kick ball to goal
 	
 	player.mMain.mBall.kick(player.position,goalVector.normalized())
+	
+	#hide the real ball
+	player.mMain.mBall.hide()
 		
 func _execute(player):
 	
