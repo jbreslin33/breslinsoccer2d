@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://player/Sprite.gd" type="Script" id=2]
+[ext_resource path="res://player/art/player.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -9,17 +9,20 @@ custom_solver_bias = 0.0
 radius = 3.01948
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 538, 255 )
+position = Vector2( 546.244, 254.251 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 motion/sync_to_physics = false
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.2, 0.2 )
-script = ExtResource( 2 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

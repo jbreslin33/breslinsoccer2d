@@ -59,8 +59,8 @@ func _init():
 	mPlayerGoToShootingPositionState = PlayerGoToShootingPositionState.new()	
 	
 func _ready():
-	mSprite = $Sprite
-	mSprite.mPlayer = self
+	#mSprite = $Sprite
+	#mSprite.mPlayer = self
 	pass
 
 
