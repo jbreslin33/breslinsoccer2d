@@ -104,28 +104,28 @@ func _physics_process(delta):
 		
 		if (mBall.mPlayer == self):
 			print("x:", mVelocity.x, "y:",mVelocity.y)		
-			if (mVelocity.y < 0  && mVelocity.x == 0):
+			if (mVelocity.x == 0  && mVelocity.y < 0):
 				mSprite.play("dribble_0")
 				
-			elif (mVelocity.y < 0 && mVelocity.x > 0):
+			elif (mVelocity.x > 0 && mVelocity.y < 0):
 				mSprite.play("dribble_45")			
 			
-			elif (mVelocity.y == 0 && mVelocity.x > 0):
+			elif (mVelocity.x > 0 && mVelocity.y == 0):
 				mSprite.play("dribble_90")	
 			
-			elif (mVelocity.y > 0 && mVelocity.x > 0):
+			elif (mVelocity.x > 0 && mVelocity.y > 0):
 				mSprite.play("dribble_135")	
 			
-			elif (mVelocity.y > 0 && mVelocity.x == 0):
+			elif (mVelocity.x == 0 && mVelocity.y > 0):
 				mSprite.play("dribble_180")				
 			
-			elif (mVelocity.y > 0 && mVelocity.x < 0):
+			elif (mVelocity.x < 0 && mVelocity.y > 0):
 				mSprite.play("dribble_225")	
 			
-			elif (mVelocity.y == 0 && mVelocity.x < 0):
+			elif (mVelocity.x < 0 && mVelocity.y == 0):
 				mSprite.play("dribble_270")	
 			
-			elif (mVelocity.y < 0 && mVelocity.x < 0):
+			elif (mVelocity.x < 0 && mVelocity.y < 0):
 				mSprite.play("dribble_315")	
 		else:
 			mSprite.play("run")
