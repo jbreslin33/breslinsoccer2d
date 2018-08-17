@@ -87,44 +87,23 @@ func _physics_process(delta):
 			#ai
 			mStateMachine.update()
 			mSteeringBehaviors.calculate()
-			
-			#print(mSteeringBehaviors.mSteeringForce)
-
-			#brake
-			#print("x:",mSteeringBehaviors.mSteeringForce.x)
+	
 			if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
 				var breakingRate = 0.8
 				mVelocity = mVelocity * breakingRate
 			
 			#rotation
 			var turningForce = mSteeringBehaviors.getSideComponent()
-			#print(turningForce)
-
-			#Clamp(TurningForce, -Prm.PlayerMaxTurnRate, Prm.PlayerMaxTurnRate);
+		
 			turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
-			#print(turningForce)
+
 			var v = Vector2(0,0)
 			look_at(mSteeringBehaviors.mTarget)
-			#look_at(v)
 			
 			mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 		
-	
-			#animations
-			#if (mStateMachine.mCurrentState == mPlayerDribbleState):
-			#	mSprite.play("dribble")
-			#	pass
-	
-		#if (mBall.mPlayer == self):
-		#	#print("d")
-		#	mSprite.play("dribble")
-		#else:
-			#print("r")
-			#mSprite.play("run")
-		#animation
-		#print(mVelocity.x)
 		if (mBall.mPlayer == self):
-			
+			print("x:", mVelocity.x, "y:",mVelocity.y)		
 			if (mVelocity.y < 0  && mVelocity.x == 0):
 				mSprite.play("dribble_0")
 				
@@ -151,6 +130,8 @@ func _physics_process(delta):
 		else:
 			mSprite.play("run")
 	
+		#mVelocity = mVelocity.normalized()
+		#mVelocity = mVelocity * mRunSpeed
 	
 		move_and_slide(mVelocity, Vector2(0, -1))
 	

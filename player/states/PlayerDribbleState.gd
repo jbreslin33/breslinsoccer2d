@@ -9,7 +9,7 @@ func _enter(player):
 	#player.mSteeringBehaviors.setSeekOn(true)
 	print("enter dribble")
 	
-	player.mMain.mPlayerInPossession = player
+	#player.mMain.mPlayerInPossession = player
 	
 	#take control of ball
 	print("take control of ball")
@@ -26,7 +26,7 @@ func _enter(player):
 	
 	#also lets kick ball to goal
 	
-	player.mMain.mBall.kick(player.position,goalVector.normalized())
+	#player.mMain.mBall.kick(player.position,goalVector.normalized())
 	
 	#hide the real ball
 	player.mMain.mBall.hide()
