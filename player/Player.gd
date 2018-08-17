@@ -115,12 +115,42 @@ func _physics_process(delta):
 			#	mSprite.play("dribble")
 			#	pass
 	
-		if (mBall.mPlayer == self):
-			#print("d")
-			mSprite.play("dribble")
-		else:
+		#if (mBall.mPlayer == self):
+		#	#print("d")
+		#	mSprite.play("dribble")
+		#else:
 			#print("r")
+			#mSprite.play("run")
+		#animation
+		#print(mVelocity.x)
+		if (mBall.mPlayer == self):
+			
+			if (mVelocity.y < 0  && mVelocity.x == 0):
+				mSprite.play("dribble_0")
+				
+			elif (mVelocity.y < 0 && mVelocity.x > 0):
+				mSprite.play("dribble_45")			
+			
+			elif (mVelocity.y == 0 && mVelocity.x > 0):
+				mSprite.play("dribble_90")	
+			
+			elif (mVelocity.y > 0 && mVelocity.x > 0):
+				mSprite.play("dribble_135")	
+			
+			elif (mVelocity.y > 0 && mVelocity.x == 0):
+				mSprite.play("dribble_180")				
+			
+			elif (mVelocity.y > 0 && mVelocity.x < 0):
+				mSprite.play("dribble_225")	
+			
+			elif (mVelocity.y == 0 && mVelocity.x < 0):
+				mSprite.play("dribble_270")	
+			
+			elif (mVelocity.y < 0 && mVelocity.x < 0):
+				mSprite.play("dribble_315")	
+		else:
 			mSprite.play("run")
+	
 	
 		move_and_slide(mVelocity, Vector2(0, -1))
 	

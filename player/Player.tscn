@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/art/run.png" type="Texture" id=2]
-[ext_resource path="res://player/art/dribble.png" type="Texture" id=3]
+[ext_resource path="res://player/art/dribble_90.png" type="Texture" id=3]
+[ext_resource path="res://player/art/dribble_0.png" type="Texture" id=4]
+[ext_resource path="res://player/art/dribble_45.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -19,7 +21,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "dribble",
+"name": "dribble_90",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "dribble_0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "dribble_45",
 "speed": 5.0
 } ]
 
