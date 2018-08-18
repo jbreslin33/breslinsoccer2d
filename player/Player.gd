@@ -99,7 +99,7 @@ func _physics_process(delta):
 		mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 		
 	if (mBall.mPlayer == self):
-		print("x:", mVelocity.x, "y:",mVelocity.y)		
+		#print("x:", mVelocity.x, "y:",mVelocity.y)		
 		if (mVelocity.x == 0  && mVelocity.y < 0):
 			mSprite.play("dribble_0")
 			
@@ -159,9 +159,7 @@ func getShootingPosition():
 	pass	
 	
 func _on_BallArea2D_body_entered(body):
-	print("hit",mRunSpeed)
 	if (body == self):
-		print("body is self")
 		mBall.mPlayer = self
 		if (body.mTeam == mMain.mHomeTeam):
 			print("home team hit ball")
