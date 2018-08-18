@@ -162,8 +162,8 @@ func _on_BallArea2D_body_entered(body):
 	if (body == self):
 		mBall.mPlayer = self
 		if (body.mTeam == mMain.mHomeTeam):
-			print("home team hit ball")
+			pass
 		if (body.mTeam == mMain.mAwayTeam):
-			print("away team hit ball")
+			pass
 		
 
