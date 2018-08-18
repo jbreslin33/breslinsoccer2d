@@ -1,25 +1,24 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 var mPlayer = null
 var mMain = null
 var mPlayerTimedOut = null
 var mVelocity = Vector2(0,0)
-var mFriction = 0.05
+var mFriction = 0.5
 var mHideVector = Vector2(0,0)
-
+var applied = false
 #physics
-var mInitialVelocity = Vector2(0,0)
+var mInitialVelocity = Vector2(70,0)
 
 func _ready():
-	set_gravity_scale(0)
-
+	pass
 func kick(offset,impulse):
 	pass
 
 func _physics_process(delta):
 	if (mPlayer == null):
-		show()
+		#show()
+		pass
 	else:
-		hide()
-
-
+		#hide()
+		pass
