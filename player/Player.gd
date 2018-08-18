@@ -103,7 +103,7 @@ func _physics_process(delta):
 			mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 		
 		if (mBall.mPlayer == self):
-			#print("x:", mVelocity.x, "y:",mVelocity.y)		
+			print("x:", mVelocity.x, "y:",mVelocity.y)		
 			if (mVelocity.x == 0  && mVelocity.y < 0):
 				mSprite.play("dribble_0")
 				
