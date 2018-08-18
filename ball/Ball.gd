@@ -19,20 +19,8 @@ func _ready():
 	pass # Replace with function body.
 
 func kick(offset,impulse):
-	#mInitialVelocity = initialVelocity
-	#Velocity = mInitialVelocity
-	#apply_impulse(offset,impulse)
-	apply_central_impulse(impulse)
 	pass
 
 func _physics_process(delta):
-	#if (mPlayer):
-	#	mVelocity = (mPlayer.mVelocity * mPlayerDribbleBoost) * friction
-		#print(mVelocity.x)
-	mVelocity = mVelocity * mFriction
-	#move_and_slide(mVelocity, Vector2(0, -1))
-	
-	if (mPlayer != null):
-		var v = Vector2(0,0)
-		set_position(v)
+	pass
 

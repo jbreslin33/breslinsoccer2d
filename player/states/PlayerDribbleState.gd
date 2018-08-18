@@ -11,10 +11,6 @@ func _enter(player):
 	
 	#player.mMain.mPlayerInPossession = player
 	
-	#take control of ball
-	print("take control of ball")
-	player.mMain.mBall.mPlayer = player
-	
 	var goalVector = null
 	if (player.mTeam == player.mMain.mHomeTeam):
 		goalVector = Vector2(1060,360)
@@ -24,13 +20,6 @@ func _enter(player):
 	player.mSteeringBehaviors.setTarget(goalVector)
 	
 	
-	#also lets kick ball to goal
-	
-	#player.mMain.mBall.kick(player.position,goalVector.normalized())
-	
-	#hide the real ball
-	player.mMain.mBall.hide()
-		
 func _execute(player):
 	
 

@@ -14,19 +14,11 @@ func _execute(player):
 	#var goalVector = Vector2(10,360)
 	
 	player.mSteeringBehaviors.setTarget(player.mMain.mBall.position)
-	
-	#check if you collide or are close enough
-	if ( abs(player.position.x - player.mMain.mBall.position.x) < 20 && abs(player.position.y - player.mMain.mBall.position.y) < 20):
+
+	#check if you got the ball if so dribble
+	if (player.mBall.mPlayer == player):
 		player.mStateMachine.changeState(player.mPlayerDribbleState)
-		#try to get posssession
-		#player.mMain.mBall.resolveConflict(self)
-		pass	
-		
-	if (self == player.mMain.mBall.mPlayer):
-		player.mStateMachine.changeState(player.mPlayerDribbleState)
-	#if (player.isWithinShootingRange()):
-	#	player.mStateMachine.changeState(player.mPlayerShootState)
-	
+
 	pass
 	
 func _exit(player):
