@@ -1,6 +1,6 @@
 extends Object
 
-var mMain = 0
+var mMain = null
 var mPlayerArray = []
 
 func _init(main):

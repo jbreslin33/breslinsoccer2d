@@ -1,34 +1,19 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-#team
 var Team = load("res://team/team.gd")
 
 var mHomeTeam = null
 var mAwayTeam = null
-var mBall = 0
+var mBall = null
 var mControllingPlayer = null
     
-const WALK_SPEED = 70
-
-var velocity = Vector2()
-
 func _init():
 	
 	#teams
 	mHomeTeam = Team.new(self)
 	mAwayTeam = Team.new(self)
-	
-	
-	
-
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here.
 	
 	#ball
 	mBall = $Ball
