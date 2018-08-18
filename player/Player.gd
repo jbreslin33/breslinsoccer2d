@@ -63,71 +63,70 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if (mMain):
-		if (mMain.mControllingPlayer == self):
-			if Input.is_action_pressed("ui_left"):
-				mVelocity.x = -mRunSpeed
-			elif Input.is_action_pressed("ui_right"):
-				mVelocity.x =  mRunSpeed
-			else:
-				mVelocity.x = 0
-			if Input.is_action_pressed("ui_up"):
-				mVelocity.y = -mRunSpeed
-			elif Input.is_action_pressed("ui_down"):
-				mVelocity.y =  mRunSpeed
-			else:
-				mVelocity.y = 0
-		else:
-			#ai
-			mStateMachine.update()
-			mSteeringBehaviors.calculate()
+	if (mMain == null):
+		return
 	
-			if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
-				var breakingRate = 0.8
-				mVelocity = mVelocity * breakingRate
+	if (mMain.mControllingPlayer == self):
+		if Input.is_action_pressed("ui_left"):
+			mVelocity.x = -mRunSpeed
+		elif Input.is_action_pressed("ui_right"):
+			mVelocity.x =  mRunSpeed
+		else:
+			mVelocity.x = 0
+		if Input.is_action_pressed("ui_up"):
+			mVelocity.y = -mRunSpeed
+		elif Input.is_action_pressed("ui_down"):
+			mVelocity.y =  mRunSpeed
+		else:
+			mVelocity.y = 0
+	else:
+		#ai
+		mStateMachine.update()
+		mSteeringBehaviors.calculate()
+	
+		if (mSteeringBehaviors.mSteeringForce.x == 0 && mSteeringBehaviors.mSteeringForce.y == 0):
+			var breakingRate = 0.8
+			mVelocity = mVelocity * breakingRate
 			
-			#rotation
-			var turningForce = mSteeringBehaviors.getSideComponent()
+		#rotation
+		var turningForce = mSteeringBehaviors.getSideComponent()
 		
-			turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
+		turningForce = clamp(turningForce,-mMaxTurnRate,mMaxTurnRate)
 
-			var v = Vector2(0,0)
-			look_at(mSteeringBehaviors.mTarget)
+		var v = Vector2(0,0)
+		#look_at(mSteeringBehaviors.mTarget)
 			
-			mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
+		mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 		
-		if (mBall.mPlayer == self):
-			print("x:", mVelocity.x, "y:",mVelocity.y)		
-			if (mVelocity.x == 0  && mVelocity.y < 0):
-				mSprite.play("dribble_0")
-				
-			elif (mVelocity.x > 0 && mVelocity.y < 0):
-				mSprite.play("dribble_45")			
+	if (mBall.mPlayer == self):
+		print("x:", mVelocity.x, "y:",mVelocity.y)		
+		if (mVelocity.x == 0  && mVelocity.y < 0):
+			mSprite.play("dribble_0")
 			
-			elif (mVelocity.x > 0 && mVelocity.y == 0):
-				mSprite.play("dribble_90")	
+		elif (mVelocity.x > 0 && mVelocity.y < 0):
+			mSprite.play("dribble_45")			
+		
+		elif (mVelocity.x > 0 && mVelocity.y == 0):
+			mSprite.play("dribble_90")	
+		
+		elif (mVelocity.x > 0 && mVelocity.y > 0):
+			mSprite.play("dribble_135")	
+		
+		elif (mVelocity.x == 0 && mVelocity.y > 0):
+			mSprite.play("dribble_180")				
+		
+		elif (mVelocity.x < 0 && mVelocity.y > 0):
+			mSprite.play("dribble_225")	
+		
+		elif (mVelocity.x < 0 && mVelocity.y == 0):
+			mSprite.play("dribble_270")	
 			
-			elif (mVelocity.x > 0 && mVelocity.y > 0):
-				mSprite.play("dribble_135")	
-			
-			elif (mVelocity.x == 0 && mVelocity.y > 0):
-				mSprite.play("dribble_180")				
-			
-			elif (mVelocity.x < 0 && mVelocity.y > 0):
-				mSprite.play("dribble_225")	
-			
-			elif (mVelocity.x < 0 && mVelocity.y == 0):
-				mSprite.play("dribble_270")	
-			
-			elif (mVelocity.x < 0 && mVelocity.y < 0):
-				mSprite.play("dribble_315")	
-		else:
-			mSprite.play("run")
+		elif (mVelocity.x < 0 && mVelocity.y < 0):
+			mSprite.play("dribble_315")	
+	else:
+		mSprite.play("run")
 	
-		#mVelocity = mVelocity.normalized()
-		#mVelocity = mVelocity * mRunSpeed
-	
-		move_and_slide(mVelocity, Vector2(0, -1))
+	move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
 	mTeam = team
