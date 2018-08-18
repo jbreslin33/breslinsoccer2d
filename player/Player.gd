@@ -3,29 +3,27 @@ extends KinematicBody2D
 onready var mSprite = get_node("AnimatedSprite")
 
 #state machine
+var StateMachine = load("res://fsm/StateMachine.gd")
+
+#states
 var PlayerChaseState = load("res://player/states/PlayerChaseState.gd")
 var PlayerDribbleState = load("res://player/states/PlayerDribbleState.gd")
-var PlayerShootState = load("res://player/states/PlayerShootState.gd")
-var PlayerGoToShootingPositionState = load("res://player/states/PlayerGoToShootingPositionState.gd")
-var StateMachine = load("res://fsm/StateMachine.gd")
 
 #steering
 var SteeringBehaviors = load("res://steering/SteeringBehaviors.gd")
 
+#state machine
 var mStateMachine = null
+
+#states
 var mPlayerChaseState = null
 var mPlayerDribbleState = null
-var mPlayerShootState = null
-var mPlayerGoToShootingPositionState = null
 
+#steering
 var mSteeringBehaviors = null
 
 #velocity
 var mRunSpeed = 70
-var mMaxSpeed = 70
-
-#kick
-var mMaxKickForce = 200
 
 var mVelocity = Vector2(0,0)
 
@@ -45,28 +43,24 @@ var mTeam = null
 #main
 var mMain = null
 
+#ball
 var mBall = null
-
-#sprite
-
 
 func _init():
 
-	#steering
-	mSteeringBehaviors = SteeringBehaviors.new(self)
-
 	#state machine
 	mStateMachine = StateMachine.new(self)
+	
+	#states
 	mPlayerChaseState = PlayerChaseState.new()
 	mPlayerDribbleState = PlayerDribbleState.new()
-	mPlayerShootState = PlayerShootState.new()
-	mPlayerGoToShootingPositionState = PlayerGoToShootingPositionState.new()	
+
+	#steering
+	mSteeringBehaviors = SteeringBehaviors.new(self)	
 	
 func _ready():
-	#mSprite = $Sprite
-	#mSprite.mPlayer = self
-	pass
 
+	pass
 
 func _physics_process(delta):
 	if (mMain):
@@ -166,7 +160,7 @@ func getShootingPosition():
 	pass	
 	
 func _on_BallArea2D_body_entered(body):
-	print("hit",mMaxKickForce)
+	print("hit",mRunSpeed)
 	if (body == self):
 		print("body is self")
 		mBall.mPlayer = self
