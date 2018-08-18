@@ -158,12 +158,15 @@ func getShootingPosition():
 	return scaledSpot
 	pass	
 	
-func _on_BallArea2D_body_entered(body):
-	if (body == self):
-		mBall.mPlayer = self
-		if (body.mTeam == mMain.mHomeTeam):
-			pass
-		if (body.mTeam == mMain.mAwayTeam):
-			pass
-		
 
+
+
+
+
+func _on_Area2D_0_area_entered(area):
+	print("area name:",area.get_name())
+	if (area.get_name() == "Area2D_ball"):
+		print("yo yo ma")
+	else:
+		print("f off")
+	pass # Replace with function body.
