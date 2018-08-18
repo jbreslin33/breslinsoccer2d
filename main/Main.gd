@@ -20,21 +20,21 @@ func _ready():
 	mBall.mMain = self
 		
 	#set players to teams
-	$AwayPlayer1.setTeam(mAwayTeam)
+	#$AwayPlayer1.setTeam(mAwayTeam)
 	$HomePlayer1.setTeam(mHomeTeam)
 	
 	#set player main
-	$AwayPlayer1.setMain(self)
+	#$AwayPlayer1.setMain(self)
 	$HomePlayer1.setMain(self)
 	
 	#set bal
-	$AwayPlayer1.setBall(mBall)
+	#$AwayPlayer1.setBall(mBall)
 	$HomePlayer1.setBall(mBall)	
 	
-	setControllingPlayer($HomePlayer1)
+	#setControllingPlayer($HomePlayer1)
 	
-	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
-	#$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
+	#$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
+	$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
 
 func setControllingPlayer(player):
 	mControllingPlayer = player
