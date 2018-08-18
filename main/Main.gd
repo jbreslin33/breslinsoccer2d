@@ -18,8 +18,7 @@ func _ready():
 	#ball
 	mBall = $Ball
 	mBall.mMain = self
-	
-	
+		
 	#set players to teams
 	$AwayPlayer1.setTeam(mAwayTeam)
 	$HomePlayer1.setTeam(mHomeTeam)
@@ -36,14 +35,7 @@ func _ready():
 	
 	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
 	#$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
-	
-	
-	pass
 
 func setControllingPlayer(player):
 	mControllingPlayer = player
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
