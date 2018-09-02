@@ -177,17 +177,68 @@ func getShootingPosition():
 	pass	
 	
 #call col detection.....
-
+func checkForRealSteal(myarea):
+	if (myarea == "Area2D_0" && mDribblingPosition == 8):
+		return true
+	if (myarea == "Area2D_45" && mDribblingPosition == 9):
+		return true
+	if (myarea == "Area2D_90" && mDribblingPosition == 6):
+		return true
+	if (myarea == "Area2D_135" && mDribblingPosition == 3):
+		return true		
+	if (myarea == "Area2D_180" && mDribblingPosition == 2):
+		return true
+	if (myarea == "Area2D_225" && mDribblingPosition == 1):
+		return true
+	if (myarea == "Area2D_270" && mDribblingPosition == 4):
+		return true
+	if (myarea == "Area2D_315" && mDribblingPosition == 7):
+		return true
+	return false
+	
 func checkForSteal(myarea,area):
 	#print("checking for steal")
 	if (mBall.mPlayer == self):
 		#print("checking for seal and im the ball carrier")
-		if (area.get_name() == "Area2D_180"):
-			if (myarea == "Area2D_90"):
-				if (mDribblingPosition == 6):
-					mBall.mPlayer = null
-					print("hit area 90 of player with ball with defenders 180")
+		if (area.get_name() == "Area2D_0"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 0")
+				
+		if (area.get_name() == "Area2D_45"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 45")
+				
+		if (area.get_name() == "Area2D_90"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 90")
 		
+		if (area.get_name() == "Area2D_135"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 135")
+		
+		if (area.get_name() == "Area2D_180"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 180")
+		
+		if (area.get_name() == "Area2D_225"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 225")
+
+		if (area.get_name() == "Area2D_270"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 270")
+
+		if (area.get_name() == "Area2D_315"):
+			if (checkForRealSteal(myarea)):
+				mBall.mPlayer = null
+				print("disrupted with defenders 315")
 	pass
 	
 func _on_Area2D_0_area_entered(area):
