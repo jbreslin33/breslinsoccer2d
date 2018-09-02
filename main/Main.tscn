@@ -15,3 +15,5 @@ position = Vector2( 163.603, 135.585 )
 
 [node name="Ball" parent="." instance=ExtResource( 4 )]
 
+[node name="AwayPlayer1" parent="." instance=ExtResource( 3 )]
+
