@@ -187,6 +187,7 @@ func checkForSteal(myarea,area):
 				if (mDribblingPosition == 6):
 					mBall.mPlayer = null
 					print("hit area 90 of player with ball with defenders 180")
+		
 	pass
 	
 func _on_Area2D_0_area_entered(area):
@@ -197,36 +198,43 @@ func _on_Area2D_0_area_entered(area):
 
 func _on_Area2D_45_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:45")
 	checkForSteal("Area2D_45",area)
 
 func _on_Area2D_90_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:90")
 	checkForSteal("Area2D_90",area)
 		
 func _on_Area2D_135_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:135")
 	checkForSteal("Area2D_135",area)
 
 func _on_Area2D_180_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:180")
 	checkForSteal("Area2D_180",area)
 
 func _on_Area2D_225_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:225")
 	checkForSteal("Area2D_225",area)
 
 func _on_Area2D_270_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:270")
 	checkForSteal("Area2D_270",area)
 
 func _on_Area2D_315_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:315")
 	checkForSteal("Area2D_315",area)
 
