@@ -68,6 +68,12 @@ func _ready():
 func _physics_process(delta):
 	if (mMain == null):
 		return
+	if Input.is_action_pressed("ui_number_1"):
+		print("setHOmePlayer to control")
+		mMain.setControllingPlayer(mMain.mHomePlayer1)
+	if Input.is_action_pressed("ui_number_2"):
+		print("setAwayPlayer to control")
+		mMain.setControllingPlayer(mMain.mAwayPlayer1)
 	
 	if (mMain.mControllingPlayer == self):
 		if Input.is_action_pressed("ui_left"):
@@ -100,7 +106,7 @@ func _physics_process(delta):
 		#look_at(mSteeringBehaviors.mTarget)
 			
 		mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
-		
+	
 	if (mBall.mPlayer == self):
 		#print("x:", mVelocity.x, "y:",mVelocity.y)		
 		if (mVelocity.x == 0  && mVelocity.y < 0):
