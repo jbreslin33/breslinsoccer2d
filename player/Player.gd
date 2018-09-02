@@ -185,6 +185,7 @@ func checkForSteal(myarea,area):
 		if (area.get_name() == "Area2D_180"):
 			if (myarea == "Area2D_90"):
 				if (mDribblingPosition == 6):
+					mBall.mPlayer = null
 					print("hit area 90 of player with ball with defenders 180")
 	pass
 	
