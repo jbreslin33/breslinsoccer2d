@@ -177,39 +177,56 @@ func getShootingPosition():
 	pass	
 	
 #call col detection.....
+func checkForSteal(myarea,area):
+	#print("checking for steal")
+	if (mBall.mPlayer == self):
+		#print("checking for seal and im the ball carrier")
+		if (myarea == "Area2D_90"):
+			if (mDribblingPosition == 6):
+				print("hit area 90 of player with ball with something")
+		
+	pass
+	
 func _on_Area2D_0_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
 		print("hit:0")
+	checkForSteal("Area2D_0",area)
 
 func _on_Area2D_45_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:45")
+	checkForSteal("Area2D_45",area)
 
 func _on_Area2D_90_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:90")
-
+	checkForSteal("Area2D_90",area)
+		
 func _on_Area2D_135_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:135")
+	checkForSteal("Area2D_135",area)
 
 func _on_Area2D_180_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:180")
+	checkForSteal("Area2D_180",area)
 
 func _on_Area2D_225_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:225")
+	checkForSteal("Area2D_225",area)
 
 func _on_Area2D_270_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:270")
+	checkForSteal("Area2D_270",area)
 
 func _on_Area2D_315_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:315")
-
+	checkForSteal("Area2D_315",area)
 
 func _on_Area2D_area_entered(area):
 	pass # Replace with function body.
