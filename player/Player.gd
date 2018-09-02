@@ -177,14 +177,15 @@ func getShootingPosition():
 	pass	
 	
 #call col detection.....
+
 func checkForSteal(myarea,area):
 	#print("checking for steal")
 	if (mBall.mPlayer == self):
 		#print("checking for seal and im the ball carrier")
-		if (myarea == "Area2D_90"):
-			if (mDribblingPosition == 6):
-				print("hit area 90 of player with ball with something")
-		
+		if (area.get_name() == "Area2D_180"):
+			if (myarea == "Area2D_90"):
+				if (mDribblingPosition == 6):
+					print("hit area 90 of player with ball with defenders 180")
 	pass
 	
 func _on_Area2D_0_area_entered(area):
