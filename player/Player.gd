@@ -46,6 +46,9 @@ var mMain = null
 #ball
 var mBall = null
 
+#dribbling
+var mDribblingPosition = 0
+
 func _init():
 
 	#state machine
@@ -102,27 +105,36 @@ func _physics_process(delta):
 		#print("x:", mVelocity.x, "y:",mVelocity.y)		
 		if (mVelocity.x == 0  && mVelocity.y < 0):
 			mSprite.play("dribble_0")
-			
+			mDribblingPosition = 8
+						
 		elif (mVelocity.x > 0 && mVelocity.y < 0):
 			mSprite.play("dribble_45")			
-		
+			mDribblingPosition = 9
+			
 		elif (mVelocity.x > 0 && mVelocity.y == 0):
 			mSprite.play("dribble_90")	
-		
+			mDribblingPosition = 6
+			
 		elif (mVelocity.x > 0 && mVelocity.y > 0):
 			mSprite.play("dribble_135")	
-		
+			mDribblingPosition = 3
+			
 		elif (mVelocity.x == 0 && mVelocity.y > 0):
 			mSprite.play("dribble_180")				
-		
+			mDribblingPosition = 2
+			
 		elif (mVelocity.x < 0 && mVelocity.y > 0):
 			mSprite.play("dribble_225")	
-		
+			mDribblingPosition = 1
+			
 		elif (mVelocity.x < 0 && mVelocity.y == 0):
 			mSprite.play("dribble_270")	
+			mDribblingPosition = 4
 			
 		elif (mVelocity.x < 0 && mVelocity.y < 0):
 			mSprite.play("dribble_315")	
+			mDribblingPosition = 7
+			
 	else:
 		mSprite.play("run")
 	
