@@ -161,6 +161,7 @@ func getShootingPosition():
 #call col detection.....
 func _on_Area2D_0_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
+		mBall.mPlayer = self
 		print("hit:0")
 
 func _on_Area2D_45_area_entered(area):
