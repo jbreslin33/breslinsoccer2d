@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://player/art/dribble_135.png" type="Texture" id=2]
@@ -65,13 +65,48 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 4.99408, 3.55087 )
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=5]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=8]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=9]
+
+custom_solver_bias = 0.0
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id=10]
+
+custom_solver_bias = 0.0
+radius = 4.0
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 567.938, 247.675 )
+position = Vector2( 579.181, 258.438 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -92,8 +127,7 @@ animation = "run"
 _sections_unfolded = [ "frames" ]
 
 [node name="Area2D_0" type="Area2D" parent="."]
-position = Vector2( 0, 5 )
-scale = Vector2( 1, 1.25 )
+position = Vector2( 1, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -101,16 +135,15 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_0"]
-position = Vector2( 0, -10 )
+position = Vector2( -0.517395, -11.9449 )
 shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "shape" ]
 
 [node name="Area2D_45" type="Area2D" parent="."]
-position = Vector2( 10, 5 )
-scale = Vector2( 1, 1.25 )
+position = Vector2( 19.2914, 0.0994263 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -121,13 +154,11 @@ audio_bus_name = "Master"
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_45"]
-position = Vector2( 0, -10 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -10.9328, -7.65132 )
+shape = SubResource( 4 )
+_sections_unfolded = [ "Transform", "shape" ]
 
 [node name="Area2D_90" type="Area2D" parent="."]
-position = Vector2( 10, 14 )
-scale = Vector2( 1, 1.25 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -135,16 +166,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_90"]
-position = Vector2( 0, -10 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 12.0322, 0.795532 )
+shape = SubResource( 5 )
+_sections_unfolded = [ "shape" ]
 
 [node name="Area2D_135" type="Area2D" parent="."]
-position = Vector2( 10, 22.8 )
-scale = Vector2( 1, 1.25 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -152,16 +180,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_135"]
-position = Vector2( 0, -10 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 8.85022, 9.1485 )
+shape = SubResource( 6 )
+_sections_unfolded = [ "shape" ]
 
 [node name="Area2D_180" type="Area2D" parent="."]
-position = Vector2( 0, 22.8 )
-scale = Vector2( 1, 1.25 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -169,16 +194,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_180"]
-position = Vector2( 0, -10 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 0.89502, 12.9272 )
+shape = SubResource( 7 )
+_sections_unfolded = [ "shape" ]
 
 [node name="Area2D_225" type="Area2D" parent="."]
-position = Vector2( -10, 22.8 )
-scale = Vector2( 1, 1.25 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -186,16 +208,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_225"]
-position = Vector2( 0, -10 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -7.35858, 9.74515 )
+shape = SubResource( 8 )
+_sections_unfolded = [ "shape" ]
 
 [node name="Area2D_270" type="Area2D" parent="."]
-position = Vector2( -10, 14 )
-scale = Vector2( 1, 1.25 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -203,16 +222,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_270"]
-position = Vector2( 0, -10 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( -10.839, 1.29272 )
+shape = SubResource( 9 )
+_sections_unfolded = [ "shape" ]
 
-[node name="Area2D_315" type="Area2D" parent="."]
-position = Vector2( -10, 5 )
-scale = Vector2( 1, 1.25 )
+[node name="Area2D" type="Area2D" parent="."]
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -220,12 +236,11 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_315"]
-position = Vector2( 0, -10 )
-shape = SubResource( 3 )
-_sections_unfolded = [ "Transform" ]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -7.5575, -7.25914 )
+shape = SubResource( 10 )
+_sections_unfolded = [ "shape" ]
 
 [connection signal="area_entered" from="Area2D_0" to="." method="_on_Area2D_0_area_entered"]
 [connection signal="area_entered" from="Area2D_45" to="." method="_on_Area2D_45_area_entered"]
@@ -234,4 +249,4 @@ _sections_unfolded = [ "Transform" ]
 [connection signal="area_entered" from="Area2D_180" to="." method="_on_Area2D_180_area_entered"]
 [connection signal="area_entered" from="Area2D_225" to="." method="_on_Area2D_225_area_entered"]
 [connection signal="area_entered" from="Area2D_270" to="." method="_on_Area2D_270_area_entered"]
-[connection signal="area_entered" from="Area2D_315" to="." method="_on_Area2D_315_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

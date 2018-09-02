@@ -190,3 +190,7 @@ func _on_Area2D_270_area_entered(area):
 func _on_Area2D_315_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		print("hit:315")
+
+
+func _on_Area2D_area_entered(area):
+	pass # Replace with function body.
