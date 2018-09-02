@@ -18,11 +18,10 @@ func kick(offset,impulse):
 func _physics_process(delta):
 	if (mPlayer == null):
 		$Area2D_ball/CollisionShape2D.disabled = false
-		
-		#show()
+		show()
 		pass
 	else:
-		#hide()
+		hide()
 		$Area2D_ball/CollisionShape2D.disabled = true
 		pass
 
