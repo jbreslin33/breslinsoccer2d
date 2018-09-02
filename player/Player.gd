@@ -158,15 +158,35 @@ func getShootingPosition():
 	return scaledSpot
 	pass	
 	
-
-
-
-
-
+#call col detection.....
 func _on_Area2D_0_area_entered(area):
-	print("area name:",area.get_name())
 	if (area.get_name() == "Area2D_ball"):
-		print("yo yo ma")
-	else:
-		print("f off")
-	pass # Replace with function body.
+		print("hit:0")
+
+func _on_Area2D_45_area_entered(area):
+	if (area.get_name() == "Area2D_ball"):
+		print("hit:45")
+
+func _on_Area2D_90_area_entered(area):
+	if (area.get_name() == "Area2D_ball"):
+		print("hit:90")
+
+func _on_Area2D_135_area_entered(area):
+	if (area.get_name() == "Area2D_ball"):
+		print("hit:135")
+
+func _on_Area2D_180_area_entered(area):
+	if (area.get_name() == "Area2D_ball"):
+		print("hit:180")
+
+func _on_Area2D_225_area_entered(area):
+	if (area.get_name() == "Area2D_ball"):
+		print("hit:225")
+
+func _on_Area2D_270_area_entered(area):
+	if (area.get_name() == "Area2D_ball"):
+		print("hit:270")
+
+func _on_Area2D_315_area_entered(area):
+	if (area.get_name() == "Area2D_ball"):
+		print("hit:315")
