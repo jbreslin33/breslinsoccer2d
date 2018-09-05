@@ -30,7 +30,6 @@ var mVelocity = Vector2(0,0)
 #rotation
 var mHeading = Vector2(0,0)
 var mSide = Vector2(0,0)
-
 var mMaxForce = 1.0
 var mMaxTurnRate = 0.4
 
@@ -69,10 +68,8 @@ func _physics_process(delta):
 	if (mMain == null):
 		return
 	if Input.is_action_pressed("ui_number_1"):
-		print("setHOmePlayer to control")
 		mMain.setControllingPlayer(mMain.mHomePlayer1)
 	if Input.is_action_pressed("ui_number_2"):
-		print("setAwayPlayer to control")
 		mMain.setControllingPlayer(mMain.mAwayPlayer1)
 	
 	if (mMain.mControllingPlayer == self):
@@ -203,90 +200,73 @@ func checkForSteal(myarea,area):
 		if (area.get_name() == "Area2D_0"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 0")
 				
 		if (area.get_name() == "Area2D_45"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 45")
 				
 		if (area.get_name() == "Area2D_90"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 90")
 		
 		if (area.get_name() == "Area2D_135"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 135")
 		
 		if (area.get_name() == "Area2D_180"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 180")
 		
 		if (area.get_name() == "Area2D_225"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 225")
 
 		if (area.get_name() == "Area2D_270"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 270")
 
 		if (area.get_name() == "Area2D_315"):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
-				print("disrupted with defenders 315")
-	pass
-	
+
 func _on_Area2D_0_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:0")
 	checkForSteal("Area2D_0",area)
 
 func _on_Area2D_45_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:45")
 	checkForSteal("Area2D_45",area)
 
 func _on_Area2D_90_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:90")
 	checkForSteal("Area2D_90",area)
 		
 func _on_Area2D_135_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:135")
 	checkForSteal("Area2D_135",area)
 
 func _on_Area2D_180_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:180")
 	checkForSteal("Area2D_180",area)
 
 func _on_Area2D_225_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:225")
 	checkForSteal("Area2D_225",area)
 
 func _on_Area2D_270_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:270")
 	checkForSteal("Area2D_270",area)
 
 func _on_Area2D_315_area_entered(area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-		print("hit:315")
 	checkForSteal("Area2D_315",area)
 
 func _on_Area2D_area_entered(area):
