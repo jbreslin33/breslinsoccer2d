@@ -49,6 +49,10 @@ var mBall = null
 var mDribblingPosition = 0
 var mDribblingCollisionShape2D = null
 
+var mCollisionTimeoutThreshold = 100
+var mCollisionTimeoutCounter = 0
+var mCollisionTimeout = false
+
 func _init():
 
 	#state machine
@@ -140,7 +144,18 @@ func _physics_process(delta):
 			
 	else:
 		mSprite.play("run")
-	
+		
+	#FEELERS
+	if (mBall.mPlayer == self):
+		disableFeelerCollisions()
+	else:
+		if (mCollisionTimeout == true):
+			mCollisionTimeoutCounter = mCollisionTimeoutCounter + 1
+			if (mCollisionTimeoutCounter > mCollisionTimeoutThreshold):
+				enableFeelerCollisions()
+		else:
+			enableFeelerCollisions()
+			
 	move_and_slide(mVelocity, Vector2(0, -1))
 	
 func setTeam(team):
@@ -172,36 +187,18 @@ func getShootingPosition():
 	var scaledSpot = (toObjectNormalized * distanceAway) + mMain.mBall.position
 	return scaledSpot
 	pass	
-	
-#on this function area should be opponent trying to steal
-func checkForLossOfPossession(myarea,area):
-	if (myarea == "Area2D_0" && mDribblingPosition == 8):
-		return true
-	if (myarea == "Area2D_45" && mDribblingPosition == 9):
-		return true
-	if (myarea == "Area2D_90" && mDribblingPosition == 6):
-		return true
-	if (myarea == "Area2D_135" && mDribblingPosition == 3):
-		return true		
-	if (myarea == "Area2D_180" && mDribblingPosition == 2):
-		return true
-	if (myarea == "Area2D_225" && mDribblingPosition == 1):
-		return true
-	if (myarea == "Area2D_270" && mDribblingPosition == 4):
-		return true
-	if (myarea == "Area2D_315" && mDribblingPosition == 7):
-		return true
-	return false
 
-func checkForLooseBallPossess(myArea,area):
+#POSSESSION	
+
+func checkForBallPossess(myArea,area):
 	if (area.get_name() == "Area2D_ball"):
+		if (mBall.mPlayer):
+			mBall.mPlayer.mCollisionTimeout = true
 		mBall.mPlayer = self
-
+	
 func runACheck(myArea,area):
-	checkForLooseBallPossess(myArea,area)
-	#if (mBall.mPlayer == self):
-	#	if (checkForLossOfPossession(myArea,area)):
-	#		mBall.mPlayer = null
+	checkForBallPossess(myArea,area)
+
 
 func _on_Area2D_0_area_entered(area):
 	runACheck("Area2D_0",area)
