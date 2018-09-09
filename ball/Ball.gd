@@ -19,6 +19,8 @@ func _physics_process(delta):
 	if (mPlayer == null):
 		$Area2D_ball/CollisionShape2D.disabled = false
 		show()
+		#var v = Vector2(30,30)
+		#set_position(v)
 		pass
 	else:
 		hide()
