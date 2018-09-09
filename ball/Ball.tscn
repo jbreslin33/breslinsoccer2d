@@ -13,14 +13,13 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Script" ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 4.26648, 3.52814 )
-_sections_unfolded = [ "Resource", "Script" ]
+radius = 3.57433
 
 [node name="Ball" type="KinematicBody2D"]
-position = Vector2( 434.516, 361.271 )
+position = Vector2( 437.329, 361.271 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -49,6 +48,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_ball"]
+position = Vector2( 0.727417, -0.290955 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Script", "shape" ]
 
