@@ -106,49 +106,37 @@ func _physics_process(delta):
 		mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 	
 	if (mBall.mPlayer == self):
-		#print("x:", mVelocity.x, "y:",mVelocity.y)		
 		if (mVelocity.x == 0  && mVelocity.y < 0):
-			#mSprite.play("dribble_0")
 			mDribblingPosition = 8
 			mDribblingCollisionShape2D = $Area2D_0/CollisionShape2D
 						
 		elif (mVelocity.x > 0 && mVelocity.y < 0):
-			#mSprite.play("dribble_45")			
 			mDribblingPosition = 9
 			mDribblingCollisionShape2D = $Area2D_45/CollisionShape2D
 						
 		elif (mVelocity.x > 0 && mVelocity.y == 0):
-			#mSprite.play("dribble_90")	
 			mDribblingPosition = 6
 			mDribblingCollisionShape2D = $Area2D_90/CollisionShape2D
 			
 		elif (mVelocity.x > 0 && mVelocity.y > 0):
-			#mSprite.play("dribble_135")	
 			mDribblingPosition = 3
 			mDribblingCollisionShape2D = $Area2D_135/CollisionShape2D
 
 		elif (mVelocity.x == 0 && mVelocity.y > 0):
-			#mSprite.play("dribble_180")				
 			mDribblingPosition = 2
 			mDribblingCollisionShape2D = $Area2D_180/CollisionShape2D
 			
 		elif (mVelocity.x < 0 && mVelocity.y > 0):
-			#mSprite.play("dribble_225")	
 			mDribblingPosition = 1
 			mDribblingCollisionShape2D = $Area2D_225/CollisionShape2D
 			
 		elif (mVelocity.x < 0 && mVelocity.y == 0):
-			#mSprite.play("dribble_270")	
 			mDribblingPosition = 4
 			mDribblingCollisionShape2D = $Area2D_270/CollisionShape2D
 		
 		elif (mVelocity.x < 0 && mVelocity.y < 0):
-			#mSprite.play("dribble_315")	
 			mDribblingPosition = 7
 			mDribblingCollisionShape2D = $Area2D_315/CollisionShape2D
-			
-		#tell ball where it is...
-		
 			
 	else:
 		mSprite.play("run")
@@ -241,3 +229,25 @@ func _on_Area2D_315_area_entered(area):
 
 func _on_Area2D_area_entered(area):
 	pass # Replace with function body.
+
+func disableFeelerCollisions():
+	$Area2D_0/CollisionShape2D.disabled = true
+	$Area2D_45/CollisionShape2D.disabled = true
+	$Area2D_90/CollisionShape2D.disabled = true
+	$Area2D_135/CollisionShape2D.disabled = true
+	$Area2D_180/CollisionShape2D.disabled = true
+	$Area2D_225/CollisionShape2D.disabled = true
+	$Area2D_270/CollisionShape2D.disabled = true
+	$Area2D_315/CollisionShape2D.disabled = true
+
+func enableFeelerCollisions():
+	$Area2D_0/CollisionShape2D.disabled = false
+	$Area2D_45/CollisionShape2D.disabled = false
+	$Area2D_90/CollisionShape2D.disabled = false
+	$Area2D_135/CollisionShape2D.disabled = false
+	$Area2D_180/CollisionShape2D.disabled = false
+	$Area2D_225/CollisionShape2D.disabled = false
+	$Area2D_270/CollisionShape2D.disabled = false
+	$Area2D_315/CollisionShape2D.disabled = false	
+	
+	

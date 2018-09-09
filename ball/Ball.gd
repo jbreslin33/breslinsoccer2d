@@ -18,7 +18,7 @@ func kick(offset,impulse):
 func _physics_process(delta):
 	if (mPlayer == null):
 		$Area2D_ball/CollisionShape2D.disabled = false
-		show()
+		#show()
 		#var v = Vector2(30,30)
 		#set_position(v)
 		pass
@@ -27,7 +27,8 @@ func _physics_process(delta):
 		$Area2D_ball/CollisionShape2D.disabled = true
 		#lets move ball to col shape
 		#print("x:",mPlayer.mDribblingCollisionShape2D.global_position.x);
-		var v = Vector2(mPlayer.mDribblingCollisionShape2D.global_position.x,mPlayer.mDribblingCollisionShape2D.global_position.y)
-		set_position(v)
+		if (mPlayer.mDribblingCollisionShape2D != null):
+			var v = Vector2(mPlayer.mDribblingCollisionShape2D.global_position.x,mPlayer.mDribblingCollisionShape2D.global_position.y)
+			set_position(v)
 		
 
