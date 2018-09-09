@@ -23,7 +23,11 @@ func _physics_process(delta):
 		#set_position(v)
 		pass
 	else:
-		hide()
+		#hide()
 		$Area2D_ball/CollisionShape2D.disabled = true
-		pass
+		#lets move ball to col shape
+		#print("x:",mPlayer.mDribblingCollisionShape2D.global_position.x);
+		var v = Vector2(mPlayer.mDribblingCollisionShape2D.global_position.x,mPlayer.mDribblingCollisionShape2D.global_position.y)
+		set_position(v)
+		
 
