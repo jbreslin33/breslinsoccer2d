@@ -173,6 +173,7 @@ func getShootingPosition():
 	return scaledSpot
 	pass	
 	
+#on this function area should be opponent trying to steal
 func checkForLossOfPossession(myarea,area):
 	if (myarea == "Area2D_0" && mDribblingPosition == 8):
 		return true
