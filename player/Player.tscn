@@ -14,7 +14,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 3.01948
+radius = 8.0
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -118,6 +118,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.407776, 1.22345 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform", "shape" ]
 
