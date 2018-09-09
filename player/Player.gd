@@ -173,8 +173,7 @@ func getShootingPosition():
 	return scaledSpot
 	pass	
 	
-#call col detection.....
-func checkForRealSteal(myarea):
+func checkForLossOfPossession(myarea,area):
 	if (myarea == "Area2D_0" && mDribblingPosition == 8):
 		return true
 	if (myarea == "Area2D_45" && mDribblingPosition == 9):
@@ -192,42 +191,6 @@ func checkForRealSteal(myarea):
 	if (myarea == "Area2D_315" && mDribblingPosition == 7):
 		return true
 	return false
-	
-func checkForSteal(myarea,area):
-	#print("checking for steal")
-	if (mBall.mPlayer == self):
-		#print("checking for seal and im the ball carrier")
-		if (area.get_name() == "Area2D_0"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
-				
-		if (area.get_name() == "Area2D_45"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
-				
-		if (area.get_name() == "Area2D_90"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
-		
-		if (area.get_name() == "Area2D_135"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
-		
-		if (area.get_name() == "Area2D_180"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
-		
-		if (area.get_name() == "Area2D_225"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
-
-		if (area.get_name() == "Area2D_270"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
-
-		if (area.get_name() == "Area2D_315"):
-			if (checkForRealSteal(myarea)):
-				mBall.mPlayer = null
 
 func checkForLooseBallPossess(myArea,area):
 	if (area.get_name() == "Area2D_ball"):
@@ -235,7 +198,9 @@ func checkForLooseBallPossess(myArea,area):
 
 func runACheck(myArea,area):
 	checkForLooseBallPossess(myArea,area)
-	checkForSteal(myArea,area)
+	if (mBall.mPlayer == self):
+		if (checkForLossOfPossession(myArea,area)):
+			mBall.mPlayer = null
 
 func _on_Area2D_0_area_entered(area):
 	runACheck("Area2D_0",area)
