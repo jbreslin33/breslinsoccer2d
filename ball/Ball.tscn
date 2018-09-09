@@ -16,7 +16,7 @@ _sections_unfolded = [ "Script" ]
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 4.26648, 3.52814 )
 _sections_unfolded = [ "Resource", "Script" ]
 
 [node name="Ball" type="KinematicBody2D"]
