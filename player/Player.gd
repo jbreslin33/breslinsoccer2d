@@ -199,9 +199,9 @@ func checkForLooseBallPossess(myArea,area):
 
 func runACheck(myArea,area):
 	checkForLooseBallPossess(myArea,area)
-	if (mBall.mPlayer == self):
-		if (checkForLossOfPossession(myArea,area)):
-			mBall.mPlayer = null
+	#if (mBall.mPlayer == self):
+	#	if (checkForLossOfPossession(myArea,area)):
+	#		mBall.mPlayer = null
 
 func _on_Area2D_0_area_entered(area):
 	runACheck("Area2D_0",area)

@@ -17,14 +17,14 @@ func kick(offset,impulse):
 
 func _physics_process(delta):
 	if (mPlayer == null):
-		$Area2D_ball/CollisionShape2D.disabled = false
+		#$Area2D_ball/CollisionShape2D.disabled = false
 		#show()
 		#var v = Vector2(30,30)
 		#set_position(v)
 		pass
 	else:
 		#hide()
-		$Area2D_ball/CollisionShape2D.disabled = true
+		#$Area2D_ball/CollisionShape2D.disabled = true
 		#lets move ball to col shape
 		#print("x:",mPlayer.mDribblingCollisionShape2D.global_position.x);
 		if (mPlayer.mDribblingCollisionShape2D != null):
