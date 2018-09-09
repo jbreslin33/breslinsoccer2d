@@ -229,45 +229,37 @@ func checkForSteal(myarea,area):
 			if (checkForRealSteal(myarea)):
 				mBall.mPlayer = null
 
-func _on_Area2D_0_area_entered(area):
+func checkForLooseBallPossess(myArea,area):
 	if (area.get_name() == "Area2D_ball"):
 		mBall.mPlayer = self
-	checkForSteal("Area2D_0",area)
 
+func runACheck(myArea,area):
+	checkForLooseBallPossess(myArea,area)
+	checkForSteal(myArea,area)
+
+func _on_Area2D_0_area_entered(area):
+	runACheck("Area2D_0",area)
+	
 func _on_Area2D_45_area_entered(area):
-	if (area.get_name() == "Area2D_ball"):
-		mBall.mPlayer = self
-	checkForSteal("Area2D_45",area)
+	runACheck("Area2D_45",area)
 
 func _on_Area2D_90_area_entered(area):
-	if (area.get_name() == "Area2D_ball"):
-		mBall.mPlayer = self
-	checkForSteal("Area2D_90",area)
+	runACheck("Area2D_90",area)
 		
 func _on_Area2D_135_area_entered(area):
-	if (area.get_name() == "Area2D_ball"):
-		mBall.mPlayer = self
-	checkForSteal("Area2D_135",area)
+	runACheck("Area2D_135",area)
 
 func _on_Area2D_180_area_entered(area):
-	if (area.get_name() == "Area2D_ball"):
-		mBall.mPlayer = self
-	checkForSteal("Area2D_180",area)
+	runACheck("Area2D_180",area)
 
 func _on_Area2D_225_area_entered(area):
-	if (area.get_name() == "Area2D_ball"):
-		mBall.mPlayer = self
-	checkForSteal("Area2D_225",area)
+	runACheck("Area2D_225",area)
 
 func _on_Area2D_270_area_entered(area):
-	if (area.get_name() == "Area2D_ball"):
-		mBall.mPlayer = self
-	checkForSteal("Area2D_270",area)
+	runACheck("Area2D_270",area)
 
 func _on_Area2D_315_area_entered(area):
-	if (area.get_name() == "Area2D_ball"):
-		mBall.mPlayer = self
-	checkForSteal("Area2D_315",area)
+	runACheck("Area2D_315",area)
 
 func _on_Area2D_area_entered(area):
 	pass # Replace with function body.
