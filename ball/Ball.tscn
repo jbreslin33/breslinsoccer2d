@@ -6,12 +6,12 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 5.86181
+radius = 3.21565
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 5.80302
+radius = 3.31507
 
 [node name="Ball" type="RigidBody2D"]
 position = Vector2( 386.897, 245.509 )
