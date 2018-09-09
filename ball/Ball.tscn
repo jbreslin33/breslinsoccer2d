@@ -1,26 +1,48 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ball/Ball.gd" type="Script" id=1]
 [ext_resource path="res://ball/art/ball.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 4.26648, 3.52814 )
-_sections_unfolded = [ "Resource", "Script" ]
+radius = 5.86181
 
-[node name="Ball" type="KinematicBody2D"]
-position = Vector2( 431.589, 358.344 )
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 5.80302
+
+[node name="Ball" type="RigidBody2D"]
+position = Vector2( 386.897, 245.509 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
-collision/safe_margin = 0.08
-motion/sync_to_physics = false
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+physics_material_override = null
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_group_": true
-}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="Area2D_ball" type="Area2D" parent="."]
 input_pickable = true
@@ -32,11 +54,5 @@ audio_bus_override = false
 audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_ball"]
-shape = SubResource( 1 )
-_sections_unfolded = [ "Script", "shape" ]
-
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
-_sections_unfolded = [ "Offset", "Transform" ]
+shape = SubResource( 2 )
 
