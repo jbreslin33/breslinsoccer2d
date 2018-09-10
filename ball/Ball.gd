@@ -20,6 +20,7 @@ func _physics_process(delta):
 		pass
 	else:
 		if (mPlayer.mDribblingCollisionShape2D != null):
+			$CollisionShape2D.disabled = true
 			var v = Vector2(mPlayer.mDribblingCollisionShape2D.global_position.x,mPlayer.mDribblingCollisionShape2D.global_position.y)
 			set_position(v)
 	mVelocity = mVelocity * mFriction
