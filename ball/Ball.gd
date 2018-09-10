@@ -17,6 +17,7 @@ func kick(offset,impulse):
 
 func _physics_process(delta):
 	if (mPlayer == null):
+		$CollisionShape2D.disabled = false
 		pass
 	else:
 		if (mPlayer.mDribblingCollisionShape2D != null):
