@@ -4,7 +4,7 @@ var mPlayer = null
 var mMain = null
 var mPlayerTimedOut = null
 var mVelocity = Vector2(0,0)
-var mFriction = 0.5
+var mFriction = 0.99
 var mHideVector = Vector2(0,0)
 var applied = false
 #physics
@@ -17,18 +17,12 @@ func kick(offset,impulse):
 
 func _physics_process(delta):
 	if (mPlayer == null):
-		#$Area2D_ball/CollisionShape2D.disabled = false
-		#show()
-		#var v = Vector2(30,30)
-		#set_position(v)
 		pass
 	else:
-		#hide()
-		#$Area2D_ball/CollisionShape2D.disabled = true
-		#lets move ball to col shape
-		#print("x:",mPlayer.mDribblingCollisionShape2D.global_position.x);
 		if (mPlayer.mDribblingCollisionShape2D != null):
 			var v = Vector2(mPlayer.mDribblingCollisionShape2D.global_position.x,mPlayer.mDribblingCollisionShape2D.global_position.y)
 			set_position(v)
+	mVelocity = mVelocity * mFriction
+	move_and_slide(mVelocity, Vector2(0, -1))
 		
 

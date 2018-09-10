@@ -36,6 +36,8 @@ var mMaxTurnRate = 0.4
 #shooting
 var mShootingRange = 2000
 
+var mKickForce = 210
+
 #team
 var mTeam = null
 
@@ -76,6 +78,15 @@ func _physics_process(delta):
 		mMain.setControllingPlayer(mMain.mHomePlayer1)
 	if Input.is_action_pressed("ui_number_2"):
 		mMain.setControllingPlayer(mMain.mAwayPlayer1)
+
+	if Input.is_action_pressed("shoot"):
+		if (mBall.mPlayer == self):
+			mBall.mPlayer = null
+			print("shoot")
+			mBall.mVelocity = Vector2(100,0)
+			mBall.mVelocity = mBall.mVelocity.normalized()
+			mBall.mVelocity = mBall.mVelocity * mKickForce
+			print(mBall.mVelocity)
 	
 	if (mMain.mControllingPlayer == self):
 		if Input.is_action_pressed("ui_left"):
