@@ -41,7 +41,7 @@ func _ready():
 	mHomePlayer1 = $HomePlayer1
 	mAwayPlayer1 = $AwayPlayer1
 	
-	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
+	#$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
 	#$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
 
 func setControllingPlayer(player):
