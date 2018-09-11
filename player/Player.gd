@@ -132,19 +132,7 @@ func _physics_process(delta):
 		elif (mVelocity.x > 0 && mVelocity.y == 0):
 			mDribblingPosition = 6
 			mDribblingCollisionShape2D = $Area2D_90/CollisionShape2D
-			
-		elif (mVelocity.x > 0 && mVelocity.y > 0):
-			mDribblingPosition = 3
-			mDribblingCollisionShape2D = $Area2D_135/CollisionShape2D
-
-		elif (mVelocity.x == 0 && mVelocity.y > 0):
-			mDribblingPosition = 2
-			mDribblingCollisionShape2D = $Area2D_180/CollisionShape2D
-			
-		elif (mVelocity.x < 0 && mVelocity.y > 0):
-			mDribblingPosition = 1
-			mDribblingCollisionShape2D = $Area2D_225/CollisionShape2D
-			
+						
 		elif (mVelocity.x < 0 && mVelocity.y == 0):
 			mDribblingPosition = 4
 			mDribblingCollisionShape2D = $Area2D_270/CollisionShape2D
@@ -220,15 +208,6 @@ func _on_Area2D_45_area_entered(area):
 func _on_Area2D_90_area_entered(area):
 	runACheck("Area2D_90",area)
 		
-func _on_Area2D_135_area_entered(area):
-	runACheck("Area2D_135",area)
-
-func _on_Area2D_180_area_entered(area):
-	runACheck("Area2D_180",area)
-
-func _on_Area2D_225_area_entered(area):
-	runACheck("Area2D_225",area)
-
 func _on_Area2D_270_area_entered(area):
 	runACheck("Area2D_270",area)
 
@@ -242,9 +221,6 @@ func disableFeelerCollisions():
 	$Area2D_0/CollisionShape2D.disabled = true
 	$Area2D_45/CollisionShape2D.disabled = true
 	$Area2D_90/CollisionShape2D.disabled = true
-	$Area2D_135/CollisionShape2D.disabled = true
-	$Area2D_180/CollisionShape2D.disabled = true
-	$Area2D_225/CollisionShape2D.disabled = true
 	$Area2D_270/CollisionShape2D.disabled = true
 	$Area2D_315/CollisionShape2D.disabled = true
 
@@ -252,9 +228,6 @@ func enableFeelerCollisions():
 	$Area2D_0/CollisionShape2D.disabled = false
 	$Area2D_45/CollisionShape2D.disabled = false
 	$Area2D_90/CollisionShape2D.disabled = false
-	$Area2D_135/CollisionShape2D.disabled = false
-	$Area2D_180/CollisionShape2D.disabled = false
-	$Area2D_225/CollisionShape2D.disabled = false
 	$Area2D_270/CollisionShape2D.disabled = false
 	$Area2D_315/CollisionShape2D.disabled = false	
 	

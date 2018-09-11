@@ -1,15 +1,15 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
-[ext_resource path="res://player/art/dribble_180.png" type="Texture" id=2]
-[ext_resource path="res://player/art/dribble_315.png" type="Texture" id=3]
-[ext_resource path="res://player/art/run.png" type="Texture" id=4]
-[ext_resource path="res://player/art/dribble_90.png" type="Texture" id=5]
-[ext_resource path="res://player/art/dribble_0.png" type="Texture" id=6]
-[ext_resource path="res://player/art/dribble_270.png" type="Texture" id=7]
-[ext_resource path="res://player/art/dribble_45.png" type="Texture" id=8]
-[ext_resource path="res://player/art/dribble_135.png" type="Texture" id=9]
-[ext_resource path="res://player/art/dribble_225.png" type="Texture" id=10]
+[ext_resource path="res://player/art/dribble_315.png" type="Texture" id=2]
+[ext_resource path="res://player/art/run.png" type="Texture" id=3]
+[ext_resource path="res://player/art/dribble_90.png" type="Texture" id=4]
+[ext_resource path="res://player/art/dribble_0.png" type="Texture" id=5]
+[ext_resource path="res://player/art/dribble_270.png" type="Texture" id=6]
+[ext_resource path="res://player/art/dribble_45.png" type="Texture" id=7]
+[ext_resource path="res://player/art/dribble_135.png" type="Texture" id=8]
+[ext_resource path="res://player/art/dribble_225.png" type="Texture" id=9]
+[ext_resource path="res://player/art/dribble_180.png" type="Texture" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -21,47 +21,47 @@ radius = 8.0
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "dribble_180",
+"name": "dribble_315",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "dribble_315",
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "run",
+"name": "dribble_90",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "dribble_90",
+"name": "dribble_0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "dribble_0",
+"name": "dribble_270",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "dribble_270",
+"name": "dribble_45",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "dribble_45",
+"name": "dribble_135",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "dribble_135",
+"name": "dribble_225",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "dribble_225",
+"name": "dribble_180",
 "speed": 5.0
 } ]
 
@@ -86,21 +86,6 @@ custom_solver_bias = 0.0
 radius = 4.0
 
 [sub_resource type="CircleShape2D" id=7]
-
-custom_solver_bias = 0.0
-radius = 4.0
-
-[sub_resource type="CircleShape2D" id=8]
-
-custom_solver_bias = 0.0
-radius = 4.0
-
-[sub_resource type="CircleShape2D" id=9]
-
-custom_solver_bias = 0.0
-radius = 4.0
-
-[sub_resource type="CircleShape2D" id=10]
 
 custom_solver_bias = 0.0
 radius = 4.0
@@ -173,48 +158,6 @@ position = Vector2( 12.0322, 0.795532 )
 shape = SubResource( 5 )
 _sections_unfolded = [ "shape" ]
 
-[node name="Area2D_135" type="Area2D" parent="."]
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_135"]
-position = Vector2( 8.85022, 9.1485 )
-shape = SubResource( 6 )
-_sections_unfolded = [ "shape" ]
-
-[node name="Area2D_180" type="Area2D" parent="."]
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_180"]
-position = Vector2( 0.89502, 12.9272 )
-shape = SubResource( 7 )
-_sections_unfolded = [ "shape" ]
-
-[node name="Area2D_225" type="Area2D" parent="."]
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_225"]
-position = Vector2( -7.35858, 9.74515 )
-shape = SubResource( 8 )
-_sections_unfolded = [ "shape" ]
-
 [node name="Area2D_270" type="Area2D" parent="."]
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -226,7 +169,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_270"]
 position = Vector2( -10.839, 1.29272 )
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 _sections_unfolded = [ "shape" ]
 
 [node name="Area2D_315" type="Area2D" parent="."]
@@ -240,14 +183,11 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_315"]
 position = Vector2( -7.5575, -7.25914 )
-shape = SubResource( 10 )
+shape = SubResource( 7 )
 _sections_unfolded = [ "shape" ]
 
 [connection signal="area_entered" from="Area2D_0" to="." method="_on_Area2D_0_area_entered"]
 [connection signal="area_entered" from="Area2D_45" to="." method="_on_Area2D_45_area_entered"]
 [connection signal="area_entered" from="Area2D_90" to="." method="_on_Area2D_90_area_entered"]
-[connection signal="area_entered" from="Area2D_135" to="." method="_on_Area2D_135_area_entered"]
-[connection signal="area_entered" from="Area2D_180" to="." method="_on_Area2D_180_area_entered"]
-[connection signal="area_entered" from="Area2D_225" to="." method="_on_Area2D_225_area_entered"]
 [connection signal="area_entered" from="Area2D_270" to="." method="_on_Area2D_270_area_entered"]
 [connection signal="area_entered" from="Area2D_315" to="." method="_on_Area2D_area_entered"]
