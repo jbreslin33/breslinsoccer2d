@@ -44,6 +44,15 @@ func _ready():
 	$AwayPlayer1.mStateMachine.changeState($AwayPlayer1.mPlayerChaseState)	
 	#$HomePlayer1.mStateMachine.changeState($HomePlayer1.mPlayerChaseState)	
 
+	#attacking goals
+	mHomeTeam.mAttackingGoalVector2 = $Pitch.centerOfEastGoal
+	mAwayTeam.mAttackingGoalVector2 = $Pitch.centerOfWestGoal
+	
+	#defending goals
+	mHomeTeam.mDefendingGoalVector2 = $Pitch.centerOfWestGoal
+	mAwayTeam.mDefendingGoalVector2 = $Pitch.centerOfEastGoal
+		
+	
 func setControllingPlayer(player):
 	mControllingPlayer = player
 

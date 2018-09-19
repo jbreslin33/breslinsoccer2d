@@ -10,13 +10,15 @@ func _enter(player):
 	player.mSteeringBehaviors.setSeekOn(true)
 	
 func _execute(player):
-	var goalVector = null
-	if (player.mTeam == player.mMain.mHomeTeam):
-		goalVector = Vector2(1060,360)
-	else:
-		goalVector = Vector2(10,360)		
+	#var goalVector = null
+	#if (player.mTeam == player.mMain.mHomeTeam):
+	#	goalVector = Vector2(1060,360)
+	#else:
+	#	goalVector = Vector2(10,360)		
 	
-	player.mSteeringBehaviors.setTarget(goalVector)	
+	#player.mSteeringBehaviors.setTarget(goalVector)	
+
+	player.mSteeringBehaviors.setTarget(player.mTeam.mAttackingGoalVector2)
 
 	pass
 func _exit(player):
