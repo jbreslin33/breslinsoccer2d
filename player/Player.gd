@@ -72,13 +72,16 @@ func _ready():
 	pass
 
 func _physics_process(delta):
+	# if its too early get out
 	if (mMain == null):
 		return
+	#swith players
 	if Input.is_action_pressed("ui_number_1"):
 		mMain.setControllingPlayer(mMain.mHomePlayer1)
 	if Input.is_action_pressed("ui_number_2"):
 		mMain.setControllingPlayer(mMain.mAwayPlayer1)
 
+	#shoot code
 	if Input.is_action_pressed("shoot"):
 		if (mBall.mPlayer == self):
 			mBall.mPlayer = null
@@ -88,6 +91,7 @@ func _physics_process(delta):
 			mBall.mVelocity = mBall.mVelocity * mKickForce
 			print(mBall.mVelocity)
 	
+	#translation movement for user controlled 
 	if (mMain.mControllingPlayer == self):
 		if Input.is_action_pressed("ui_left"):
 			mVelocity.x = -mRunSpeed
@@ -101,8 +105,8 @@ func _physics_process(delta):
 			mVelocity.y =  mRunSpeed
 		else:
 			mVelocity.y = 0
+	#ai
 	else:
-		#ai
 		mStateMachine.update()
 		mSteeringBehaviors.calculate()
 	
@@ -120,11 +124,13 @@ func _physics_process(delta):
 			
 		mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 	
+	#player with ball
 	if (mBall.mPlayer == self):
 			#lets just always be at 0 degrees for now until we build more ai to protect bal
 			mDribblingPosition = 0
 			mDribblingCollisionShape2D = $Area2D_0/CollisionShape2D
 		    #print("dp:",mDribblingPosition)
+	#player without ball
 	else:
 		mSprite.play("run")
 		
@@ -139,7 +145,7 @@ func _physics_process(delta):
 		else:
 			enableFeelerCollisions()
 
-	#test rotate
+	#rotate
 	if (mBall.mPlayer != self):
 		var p = Vector2(mBall.global_position.x,mBall.global_position.y)
 		look_at(p)
@@ -179,9 +185,12 @@ func getShootingPosition():
 #POSSESSION	
 
 func checkForBallPossess(myArea,area):
+	#was the area your myArea entered the ball area?
 	if (area.get_name() == "Area2D_ball"):
+		#if so make ball carrier if there is one have a timeout
 		if (mBall.mPlayer):
 			mBall.mPlayer.mCollisionTimeout = true
+		#make yourself the ball carrier
 		mBall.mPlayer = self
 	
 func runACheck(myArea,area):

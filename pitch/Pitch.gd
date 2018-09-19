@@ -6,6 +6,8 @@ var southTouchline = 700
 var eastTouchline = 10
 var westTouchline = 1060
 var centerVector = Vector2(535,360)
+var centerOfEastGoal = Vector2(10,360)
+var centerOfWestGoal = Vector2(1060,360)
 
 #colors
 var whiteChalk = Color(1.0, 1.0, 1.0)
