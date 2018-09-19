@@ -146,9 +146,9 @@ func _physics_process(delta):
 			enableFeelerCollisions()
 
 	#rotate
-	if (mBall.mPlayer != self):
-		var p = Vector2(mBall.global_position.x,mBall.global_position.y)
-		look_at(p)
+	#if (mBall.mPlayer != self):
+	#	var p = Vector2(mBall.global_position.x,mBall.global_position.y)
+	#	look_at(p)
 
 	move_and_slide(mVelocity, Vector2(0, -1))
 	
