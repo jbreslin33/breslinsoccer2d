@@ -140,7 +140,7 @@ func _physics_process(delta):
 		elif (mVelocity.x < 0 && mVelocity.y < 0):
 			mDribblingPosition = 7
 			mDribblingCollisionShape2D = $Area2D_315/CollisionShape2D
-		print("dp:",mDribblingPosition)
+		#print("dp:",mDribblingPosition)
 	else:
 		mSprite.play("run")
 		
