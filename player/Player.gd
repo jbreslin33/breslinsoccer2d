@@ -234,3 +234,6 @@ func lookAtBall():
 	if (mBall.mPlayer != self):
 		var ballPosition = Vector2(mBall.global_position.x,mBall.global_position.y)
 		look_at(ballPosition)
+		
+func lookAtAttackingGoal():
+	look_at(mTeam.mAttackingGoalVector2)
