@@ -229,4 +229,8 @@ func enableFeelerCollisions():
 	$Area2D_270/CollisionShape2D.disabled = false
 	$Area2D_315/CollisionShape2D.disabled = false	
 	
-	
+func lookAtBall():
+	#rotate
+	if (mBall.mPlayer != self):
+		var ballPosition = Vector2(mBall.global_position.x,mBall.global_position.y)
+		look_at(ballPosition)
