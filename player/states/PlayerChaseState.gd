@@ -5,8 +5,8 @@ func _ready():
 	pass
 
 func _enter(player):
-	player.mSteeringBehaviors.setSeekOn(true)
 	print("enter chase")
+	player.mSteeringBehaviors.setSeekOn(true)
 	
 func _execute(player):
 

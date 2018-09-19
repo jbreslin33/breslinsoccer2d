@@ -6,22 +6,17 @@ func _ready():
 	pass
 
 func _enter(player):
-	#player.mSteeringBehaviors.setSeekOn(true)
 	print("enter dribble")
+	player.mSteeringBehaviors.setSeekOn(true)
 	
-	#player.mMain.mPlayerInPossession = player
-	
+func _execute(player):
 	var goalVector = null
 	if (player.mTeam == player.mMain.mHomeTeam):
 		goalVector = Vector2(1060,360)
 	else:
 		goalVector = Vector2(10,360)		
 	
-	player.mSteeringBehaviors.setTarget(goalVector)
-	
-	
-func _execute(player):
-	
+	player.mSteeringBehaviors.setTarget(goalVector)	
 
 	pass
 func _exit(player):
