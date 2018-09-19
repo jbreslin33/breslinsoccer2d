@@ -237,3 +237,6 @@ func lookAtBall():
 		
 func lookAtAttackingGoal():
 	look_at(mTeam.mAttackingGoalVector2)
+	
+func lookAtDefendingGoal():
+	look_at(mTeam.mDefendingGoalVector2)
