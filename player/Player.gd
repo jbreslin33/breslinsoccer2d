@@ -121,26 +121,10 @@ func _physics_process(delta):
 		mVelocity = mSteeringBehaviors.mSteeringForce * mRunSpeed
 	
 	if (mBall.mPlayer == self):
-		if (mVelocity.x == 0  && mVelocity.y < 0):
-			mDribblingPosition = 8
+			#lets just always be at 0 degrees for now until we build more ai to protect bal
+			mDribblingPosition = 0
 			mDribblingCollisionShape2D = $Area2D_0/CollisionShape2D
-						
-		elif (mVelocity.x > 0 && mVelocity.y < 0):
-			mDribblingPosition = 9
-			mDribblingCollisionShape2D = $Area2D_45/CollisionShape2D
-						
-		elif (mVelocity.x > 0 && mVelocity.y == 0):
-			mDribblingPosition = 6
-			mDribblingCollisionShape2D = $Area2D_90/CollisionShape2D
-						
-		elif (mVelocity.x < 0 && mVelocity.y == 0):
-			mDribblingPosition = 4
-			mDribblingCollisionShape2D = $Area2D_270/CollisionShape2D
-		
-		elif (mVelocity.x < 0 && mVelocity.y < 0):
-			mDribblingPosition = 7
-			mDribblingCollisionShape2D = $Area2D_315/CollisionShape2D
-		#print("dp:",mDribblingPosition)
+		    #print("dp:",mDribblingPosition)
 	else:
 		mSprite.play("run")
 		
